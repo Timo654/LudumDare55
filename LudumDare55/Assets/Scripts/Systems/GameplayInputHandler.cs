@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputHandler : MonoBehaviour
+public class GameplayInputHandler : MonoBehaviour
 {
     // This class is for handling input stuff. It could be better but hopefully it'll work well enough
     // and make it easier to disable buttons during certain situations...

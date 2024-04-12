@@ -6,21 +6,27 @@ public class CreditsHandler : MonoBehaviour
 
     private PlayerControls playerControls;
     private InputAction escape;
-
+    private InputAction skipCredits;
     private void Awake()
     {
         playerControls = new PlayerControls();
+        skipCredits = playerControls.UI.SkipCredits;
+        escape = playerControls.UI.Pause;
     }
     private void OnEnable()
     {
-        escape = playerControls.UI.Pause;
+        
         escape.Enable();
+        skipCredits.Enable();
         escape.performed += Pause;
+        skipCredits.performed += Pause;
     }
     private void OnDisable()
     {
         escape.Disable();
+        skipCredits.Disable();
         escape.performed -= Pause;
+        skipCredits.performed -= Pause;
     }
 
     // Start is called before the first frame update

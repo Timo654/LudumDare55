@@ -55,9 +55,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Restart"",
+                    ""name"": ""SkipCredits"",
                     ""type"": ""Button"",
-                    ""id"": ""e069f2ff-14cf-47bb-88d7-c6ff081661da"",
+                    ""id"": ""b353f255-b0e9-433f-9a49-51ad9124c199"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -155,23 +155,23 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e2d72173-3eda-4a52-b316-59ab14594c56"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""id"": ""bc4f5e50-a26a-4618-a82f-2f66744eb749"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Restart"",
+                    ""groups"": """",
+                    ""action"": ""SkipCredits"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""67b01940-083e-417d-9b79-bc89ed29e1e4"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""id"": ""043bc8ba-2d26-4069-9a70-61ecf3da271a"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Restart"",
+                    ""groups"": """",
+                    ""action"": ""SkipCredits"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -182,94 +182,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""id"": ""04832481-59bc-446f-a6d3-01f337bf3f9e"",
             ""actions"": [],
             ""bindings"": []
-        },
-        {
-            ""name"": ""Cheats"",
-            ""id"": ""98cf1320-00e1-4310-b528-56bb834ffa98"",
-            ""actions"": [
-                {
-                    ""name"": ""ToggleUI"",
-                    ""type"": ""Button"",
-                    ""id"": ""dbaca639-71e0-4550-8020-6c64aa5dc65e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""UnlockLevels"",
-                    ""type"": ""Button"",
-                    ""id"": ""8cccd550-1344-4998-afc3-1c68dc75e571"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""UnlockOutfits"",
-                    ""type"": ""Button"",
-                    ""id"": ""69a4a92e-6d74-4424-af2e-eda396b564d3"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""RandomOutfit"",
-                    ""type"": ""Button"",
-                    ""id"": ""a37da552-b89d-4966-809b-4fa3478c9ec3"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""ca3fda6d-961a-4b02-b135-0cf73e8ef313"",
-                    ""path"": ""<Keyboard>/f5"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""ToggleUI"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""61831a98-96ce-4ee0-8d79-a23b91721d01"",
-                    ""path"": ""<Keyboard>/f7"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""UnlockOutfits"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1b9fac63-7b50-4339-8b00-a093a700b2b1"",
-                    ""path"": ""<Keyboard>/f8"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RandomOutfit"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a705c9f4-6d8a-461c-aa20-c13a7ed8945e"",
-                    ""path"": ""<Keyboard>/f6"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UnlockLevels"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
         }
     ],
     ""controlSchemes"": [
@@ -302,15 +214,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
         m_UI_Back = m_UI.FindAction("Back", throwIfNotFound: true);
         m_UI_Interact = m_UI.FindAction("Interact", throwIfNotFound: true);
-        m_UI_Restart = m_UI.FindAction("Restart", throwIfNotFound: true);
+        m_UI_SkipCredits = m_UI.FindAction("SkipCredits", throwIfNotFound: true);
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-        // Cheats
-        m_Cheats = asset.FindActionMap("Cheats", throwIfNotFound: true);
-        m_Cheats_ToggleUI = m_Cheats.FindAction("ToggleUI", throwIfNotFound: true);
-        m_Cheats_UnlockLevels = m_Cheats.FindAction("UnlockLevels", throwIfNotFound: true);
-        m_Cheats_UnlockOutfits = m_Cheats.FindAction("UnlockOutfits", throwIfNotFound: true);
-        m_Cheats_RandomOutfit = m_Cheats.FindAction("RandomOutfit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -375,7 +281,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Pause;
     private readonly InputAction m_UI_Back;
     private readonly InputAction m_UI_Interact;
-    private readonly InputAction m_UI_Restart;
+    private readonly InputAction m_UI_SkipCredits;
     public struct UIActions
     {
         private @PlayerControls m_Wrapper;
@@ -383,7 +289,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Pause => m_Wrapper.m_UI_Pause;
         public InputAction @Back => m_Wrapper.m_UI_Back;
         public InputAction @Interact => m_Wrapper.m_UI_Interact;
-        public InputAction @Restart => m_Wrapper.m_UI_Restart;
+        public InputAction @SkipCredits => m_Wrapper.m_UI_SkipCredits;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -402,9 +308,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @Restart.started += instance.OnRestart;
-            @Restart.performed += instance.OnRestart;
-            @Restart.canceled += instance.OnRestart;
+            @SkipCredits.started += instance.OnSkipCredits;
+            @SkipCredits.performed += instance.OnSkipCredits;
+            @SkipCredits.canceled += instance.OnSkipCredits;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -418,9 +324,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @Restart.started -= instance.OnRestart;
-            @Restart.performed -= instance.OnRestart;
-            @Restart.canceled -= instance.OnRestart;
+            @SkipCredits.started -= instance.OnSkipCredits;
+            @SkipCredits.performed -= instance.OnSkipCredits;
+            @SkipCredits.canceled -= instance.OnSkipCredits;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -476,76 +382,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
-
-    // Cheats
-    private readonly InputActionMap m_Cheats;
-    private List<ICheatsActions> m_CheatsActionsCallbackInterfaces = new List<ICheatsActions>();
-    private readonly InputAction m_Cheats_ToggleUI;
-    private readonly InputAction m_Cheats_UnlockLevels;
-    private readonly InputAction m_Cheats_UnlockOutfits;
-    private readonly InputAction m_Cheats_RandomOutfit;
-    public struct CheatsActions
-    {
-        private @PlayerControls m_Wrapper;
-        public CheatsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @ToggleUI => m_Wrapper.m_Cheats_ToggleUI;
-        public InputAction @UnlockLevels => m_Wrapper.m_Cheats_UnlockLevels;
-        public InputAction @UnlockOutfits => m_Wrapper.m_Cheats_UnlockOutfits;
-        public InputAction @RandomOutfit => m_Wrapper.m_Cheats_RandomOutfit;
-        public InputActionMap Get() { return m_Wrapper.m_Cheats; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(CheatsActions set) { return set.Get(); }
-        public void AddCallbacks(ICheatsActions instance)
-        {
-            if (instance == null || m_Wrapper.m_CheatsActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_CheatsActionsCallbackInterfaces.Add(instance);
-            @ToggleUI.started += instance.OnToggleUI;
-            @ToggleUI.performed += instance.OnToggleUI;
-            @ToggleUI.canceled += instance.OnToggleUI;
-            @UnlockLevels.started += instance.OnUnlockLevels;
-            @UnlockLevels.performed += instance.OnUnlockLevels;
-            @UnlockLevels.canceled += instance.OnUnlockLevels;
-            @UnlockOutfits.started += instance.OnUnlockOutfits;
-            @UnlockOutfits.performed += instance.OnUnlockOutfits;
-            @UnlockOutfits.canceled += instance.OnUnlockOutfits;
-            @RandomOutfit.started += instance.OnRandomOutfit;
-            @RandomOutfit.performed += instance.OnRandomOutfit;
-            @RandomOutfit.canceled += instance.OnRandomOutfit;
-        }
-
-        private void UnregisterCallbacks(ICheatsActions instance)
-        {
-            @ToggleUI.started -= instance.OnToggleUI;
-            @ToggleUI.performed -= instance.OnToggleUI;
-            @ToggleUI.canceled -= instance.OnToggleUI;
-            @UnlockLevels.started -= instance.OnUnlockLevels;
-            @UnlockLevels.performed -= instance.OnUnlockLevels;
-            @UnlockLevels.canceled -= instance.OnUnlockLevels;
-            @UnlockOutfits.started -= instance.OnUnlockOutfits;
-            @UnlockOutfits.performed -= instance.OnUnlockOutfits;
-            @UnlockOutfits.canceled -= instance.OnUnlockOutfits;
-            @RandomOutfit.started -= instance.OnRandomOutfit;
-            @RandomOutfit.performed -= instance.OnRandomOutfit;
-            @RandomOutfit.canceled -= instance.OnRandomOutfit;
-        }
-
-        public void RemoveCallbacks(ICheatsActions instance)
-        {
-            if (m_Wrapper.m_CheatsActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(ICheatsActions instance)
-        {
-            foreach (var item in m_Wrapper.m_CheatsActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_CheatsActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public CheatsActions @Cheats => new CheatsActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -569,16 +405,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnRestart(InputAction.CallbackContext context);
+        void OnSkipCredits(InputAction.CallbackContext context);
     }
     public interface IGameplayActions
     {
-    }
-    public interface ICheatsActions
-    {
-        void OnToggleUI(InputAction.CallbackContext context);
-        void OnUnlockLevels(InputAction.CallbackContext context);
-        void OnUnlockOutfits(InputAction.CallbackContext context);
-        void OnRandomOutfit(InputAction.CallbackContext context);
     }
 }

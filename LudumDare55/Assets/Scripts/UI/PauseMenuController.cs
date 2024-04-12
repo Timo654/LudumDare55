@@ -52,14 +52,14 @@ public class PauseMenuController : MonoBehaviour
     public void OnEnable()
     {
         pauseAction.Enable();
-        InputHandler.pause += OnPauseButton;
+        GameplayInputHandler.pause += OnPauseButton;
         LevelChanger.OnFadeInFinished += HandleFadeIn;
     }
 
     public void OnDisable()
     {
-        InputHandler.pause -= OnPauseButton;
-        InputHandler.back -= OnPauseButton;
+        GameplayInputHandler.pause -= OnPauseButton;
+        GameplayInputHandler.back -= OnPauseButton;
         LevelChanger.OnFadeInFinished -= HandleFadeIn;
     }
 
@@ -131,16 +131,16 @@ public class PauseMenuController : MonoBehaviour
     private void SubscribeToBack()
     {
         if (!pauseSubscribed) return;
-        InputHandler.back += OnPauseButton;
-        InputHandler.pause -= OnPauseButton;
+        GameplayInputHandler.back += OnPauseButton;
+        GameplayInputHandler.pause -= OnPauseButton;
         pauseSubscribed = false;
     }
 
     private void SubscribeToPause()
     {
         if (pauseSubscribed) return;
-        InputHandler.back -= OnPauseButton;
-        InputHandler.pause += OnPauseButton;
+        GameplayInputHandler.back -= OnPauseButton;
+        GameplayInputHandler.pause += OnPauseButton;
         pauseSubscribed = true;
     }
 
