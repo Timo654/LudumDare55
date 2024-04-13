@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
@@ -15,11 +16,14 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] private GameObject buttonPrefab;
     [SerializeField] private Transform buttonScroller;
     [SerializeField] private Transform hitter;
+    [SerializeField] private TextMeshProUGUI comboText;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
     [Header("Stuff to calculate")]
     private float greatRangeInCoords, goodRangeInCoords;
 
     [Header("Runtime stuff")]
+    private bool songStarted = false;
     private readonly List<GameObject> notes = new();
     private ButtonType currentPress = ButtonType.None;
     private bool pressedButton = false;
@@ -39,12 +43,19 @@ public class RhythmManager : MonoBehaviour
         goodRangeInCoords = goodRange * movementSpeed;
         CreateButtons(songData.chart.notes);
         Debug.Log("hello?");
-        // TODO - add input handling
     }
 
     private void Start()
     {
+        LevelChanger.Instance.FadeIn();
         buttonScroller.GetComponent<ButtonScroller>().movementSpeed = movementSpeed;
+        songStarted = true;
+    }
+
+    private void HandleStart()
+    {
+        Time.timeScale = 1.0f;
+        Debug.Log("start!");
     }
 
     private void OnEnable()
@@ -88,7 +99,8 @@ public class RhythmManager : MonoBehaviour
 
     void UpdateStats()
     {
-        Debug.Log(combo);
+        scoreText.text = $"S: {score}";
+        comboText.text = $"C: {combo}";
     }
 
     void HandleMiss()
@@ -98,7 +110,6 @@ public class RhythmManager : MonoBehaviour
         ResetHitData();
         DestroyNote();
         UpdateStats();
-        // TODO - connect these to actual stuff and add input to inputhandler
     }
 
     void HandleHit(NoteType note, HitGrade grade, ButtonType button)
@@ -160,6 +171,7 @@ public class RhythmManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!songStarted) return;
         if (notes.Count <= 0) return; // song is over
 
         var noteData = notes[0].GetComponent<ButtonScript>();
