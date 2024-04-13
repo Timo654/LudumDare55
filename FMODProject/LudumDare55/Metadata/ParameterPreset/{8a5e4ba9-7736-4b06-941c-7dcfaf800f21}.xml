@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{8a5e4ba9-7736-4b06-941c-7dcfaf800f21}">
+		<property name="name">
+			<value>Sidechain</value>
+		</property>
+		<relationship name="folder">
+			<destination>{f5da9dde-126a-4fe8-9316-3de60edcfbb0}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{78fd5939-e908-4eec-852c-3e7f16882215}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{78fd5939-e908-4eec-852c-3e7f16882215}">
+		<property name="minimum">
+			<value>-80</value>
+		</property>
+		<property name="maximum">
+			<value>0</value>
+		</property>
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>
