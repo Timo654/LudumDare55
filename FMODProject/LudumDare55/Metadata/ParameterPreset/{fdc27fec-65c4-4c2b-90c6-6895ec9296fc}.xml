@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{fdc27fec-65c4-4c2b-90c6-6895ec9296fc}">
+		<property name="name">
+			<value>Switching</value>
+		</property>
+		<relationship name="folder">
+			<destination>{f5da9dde-126a-4fe8-9316-3de60edcfbb0}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{1f7ff0c8-d235-4267-98a6-cec60a7a2b2a}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{1f7ff0c8-d235-4267-98a6-cec60a7a2b2a}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>CorrectNote</value>
+			<value>WrongNote</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{9d39f23f-ebb6-41c8-9535-d3b1e1bde574}</destination>
+		</relationship>
+	</object>
+	<object class="SidechainModulator" id="{9d39f23f-ebb6-41c8-9535-d3b1e1bde574}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>cursorPosition</value>
+		</property>
+	</object>
+</objects>
