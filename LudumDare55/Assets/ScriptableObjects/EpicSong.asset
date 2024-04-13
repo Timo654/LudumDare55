@@ -49,7 +49,7 @@ MonoBehaviour:
     Path: event:/Music/TESTMUSIC
   musicLengthMs: 25000
   displayDuration: 3
-  greatRange: 0.1
-  goodRange: 0.2
+  greatRange: 100
+  goodRange: 200
   holdPercentGreat: 80
   holdPercentGood: 60

@@ -1,12 +1,10 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour
 {
-    // The object to reach in 6 seconds
-    Image m_image;
     public NoteType noteType;
     public ButtonType buttonType;
     [SerializeField] private Sprite upSprite;
@@ -19,15 +17,16 @@ public class ButtonScript : MonoBehaviour
     public GameObject endNote;
     public GameObject longLine;
     public AnimationCurve bounceCurve;
+    public Note note;
     public double noteLength = 0f;
 
-    // Start is called before the first frame update
-    public void InitializeNote(ButtonType button, NoteType note, float xPosition, float yPosition)
+    public void InitializeNote(float xPosition, float yPosition, Note Note)
     {
-        buttonType = button;
-        noteType = note;
+        note = Note;
+        buttonType = Note.buttonType;
+        noteType = Note.noteType;
         transform.localPosition = new Vector2(xPosition, yPosition);
-        switch (button)
+        switch (buttonType)
         {
             case ButtonType.Up:
                 buttonSprite.sprite = upSprite;
@@ -42,7 +41,7 @@ public class ButtonScript : MonoBehaviour
                 buttonSprite.sprite = downSprite;
                 break;
             default:
-                Debug.Log("Invalid button type " + button);
+                Debug.Log("Invalid button type " + buttonType);
                 break;
         }
 
@@ -67,8 +66,6 @@ public class ButtonScript : MonoBehaviour
                 fireParticleSystem.Play();
             }
         }
-        //buttonSprite.enabled = false;
-
         StartCoroutine(DestroyCoroutine());
 
     }

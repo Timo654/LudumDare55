@@ -19,8 +19,6 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gradeText;
     [SerializeField] private GameObject longNoteLinePrefab;
     [SerializeField] private Image timerFillImage;
-    [Header("Stuff to calculate")]
-    private float greatRangeInCoords, goodRangeInCoords;
 
     [Header("Runtime stuff")]
     private bool fadeinFinished = false;
@@ -44,8 +42,8 @@ public class RhythmManager : MonoBehaviour
     {
         missSound = AudioManager.Instance.CreateInstance(FMODEvents.Instance.WrongSound);
         movementSpeed = ((1080.0f + hitter.localPosition.x) / songData.displayDuration) * 2;
-        greatRangeInCoords = songData.greatRange * movementSpeed;
-        goodRangeInCoords = songData.goodRange * movementSpeed;
+        // TODO REMOVE THIS IS TESTING
+        songData.chart = ChartLoader.LoadChart("chart.json");
         CreateButtons(songData.chart.notes);
         timerFillImage.fillAmount = 0f;
         Debug.Log($"Max score is {maxScore}");
@@ -171,7 +169,7 @@ public class RhythmManager : MonoBehaviour
         var noteObject = Instantiate(buttonPrefab);
         noteObject.transform.SetParent(buttonScroller, false);
         var noteScript = noteObject.transform.GetComponent<ButtonScript>();
-        var yPosition = hitter.localPosition.y - 60 + (65 * note.verticalPosition); // TODO - adjust this to change the difference between vert lines
+        var yPosition = hitter.localPosition.y - 80 + (85 * note.verticalPosition); // TODO - adjust this to change the difference between vert lines
         var requiredDistance = hitter.localPosition.x;
         if (isEnd)
         {
@@ -184,7 +182,7 @@ public class RhythmManager : MonoBehaviour
             requiredDistance += movementSpeed * (note.startTiming / 1000f);
         }
 
-        noteScript.InitializeNote(note.buttonType, note.noteType, requiredDistance, yPosition);
+        noteScript.InitializeNote(requiredDistance, yPosition, note);
         return noteObject;
     }
     void CreateEnd(Note note, GameObject noteObject, Color color)
@@ -210,7 +208,7 @@ public class RhythmManager : MonoBehaviour
 
     HitGrade VerifyHit(float noteDiff)
     {
-        if (noteDiff <= greatRangeInCoords) return HitGrade.Great;
+        if (noteDiff <= songData.greatRange) return HitGrade.Great;
         else return HitGrade.Good;
     }
 
@@ -276,10 +274,11 @@ public class RhythmManager : MonoBehaviour
         buttonScroller.GetComponent<ButtonScroller>().movementSpeed = 0;
     }
 
-    private void UpdateTimerValue()
+    private int UpdateTimerValue()
     {
         int musicPos = AudioManager.Instance.GetMusicPosition();
-        if (musicPos != 0) timerFillImage.fillAmount = AudioManager.Instance.GetMusicPosition() / (float)songData.musicLengthMs;
+        if (musicPos != 0) timerFillImage.fillAmount = musicPos / (float)songData.musicLengthMs;
+        return musicPos;
     }
 
     // TODO - make it easier to fail at the game
@@ -287,7 +286,6 @@ public class RhythmManager : MonoBehaviour
     {
         if (!fadeinFinished) return;
         if (!SyncAudio()) return;
-
         if (!AudioManager.IsPlaying())
         {
             if (!finished)
@@ -296,36 +294,33 @@ public class RhythmManager : MonoBehaviour
                 finished = true;
             }
         }
-
-        UpdateTimerValue();
+        
+        
+        int musicPos = UpdateTimerValue();
         if (notes.Count <= 0) return; // song is over
-
         var noteData = notes[0].GetComponent<ButtonScript>();
-
-        float noteDiff = hitter.position.x - notes[0].transform.position.x;
-        float absDiff = Mathf.Abs(noteDiff);
-
-
-        float endNoteDiff = 0f;
-        float absEndDiff = 0f;
-        if (noteData.endNote != null)
+        var timeUntilNote = noteData.note.startTiming - musicPos;
+        var timeUntilEndNote = 0f;
+        if (noteData.note.noteType == NoteType.Hold)
         {
-            endNoteDiff = hitter.position.x - noteData.endNote.transform.position.x;
-            absEndDiff = Mathf.Abs(endNoteDiff);
+            timeUntilEndNote = noteData.note.endTiming - musicPos;
         }
 
+        float noteDiff = hitter.position.x - notes[0].transform.position.x;
         switch (noteData.noteType)
         {
             case NoteType.Regular:
-                if (noteDiff > goodRangeInCoords) OnMiss?.Invoke();
-                else if (absDiff <= goodRangeInCoords && pressedButton)
+                
+                if (timeUntilNote < -songData.goodRange) OnMiss?.Invoke();
+                else if (timeUntilNote <= songData.goodRange && pressedButton)
                 {
-                    if (currentPress == noteData.buttonType) OnHit?.Invoke(noteData.noteType, VerifyHit(absDiff), noteData.buttonType);
+                    if (currentPress == noteData.buttonType) OnHit?.Invoke(noteData.noteType, VerifyHit(timeUntilNote), noteData.buttonType);
                     else OnMiss?.Invoke();
                 }
                 break;
+
             case NoteType.Hold:
-                if ((absDiff <= goodRangeInCoords) && pressedButton) // start hold
+                if ((timeUntilNote <= songData.goodRange) && pressedButton) // start hold
                 {
                     if (currentPress == noteData.buttonType && !holdStarted) holdStarted = true;
                     else
@@ -335,7 +330,7 @@ public class RhythmManager : MonoBehaviour
                         else OnMiss?.Invoke();
                     }
                 }
-                else if (endNoteDiff > goodRangeInCoords) OnMiss?.Invoke();
+                else if (timeUntilEndNote < -songData.goodRange) OnMiss?.Invoke();
                 else if (holdStarted && holdDuration > 0f)
                 {
                     var hitGrade = VerifyHold(noteData.noteLength);
