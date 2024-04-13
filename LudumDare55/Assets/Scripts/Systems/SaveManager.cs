@@ -114,7 +114,7 @@ public class SystemData
 [Serializable]
 public class GameData
 {
-    public int money = 0;
+    public int previousScore = 0;
 }
 
 [Serializable]
