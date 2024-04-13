@@ -47,3 +47,9 @@ MonoBehaviour:
       Data3: 965836988
       Data4: -632827494
     Path: event:/Music/TESTMUSIC
+  musicLengthMs: 25000
+  displayDuration: 3
+  greatRange: 0.1
+  goodRange: 0.2
+  holdPercentGreat: 80
+  holdPercentGood: 60
