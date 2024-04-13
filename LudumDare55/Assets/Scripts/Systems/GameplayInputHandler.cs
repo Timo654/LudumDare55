@@ -98,7 +98,6 @@ public class GameplayInputHandler : MonoBehaviour
                     }
                     break;
             }
-            Debug.Log("invoke press");
             RhythmButtonPressed?.Invoke(currentPress);
         }
         else if (context.canceled)

@@ -37,8 +37,8 @@ MonoBehaviour:
       buttonType: 3
   music:
     Guid:
-      Data1: 161308155
-      Data2: 1180829224
-      Data3: -932344656
-      Data4: 1898800014
-    Path: event:/Music/MenuMusic
+      Data1: -1804022419
+      Data2: 1320693327
+      Data3: 965836988
+      Data4: -632827494
+    Path: event:/Music/TESTMUSIC

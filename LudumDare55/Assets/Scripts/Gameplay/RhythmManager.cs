@@ -25,7 +25,10 @@ public class RhythmManager : MonoBehaviour
     private float greatRangeInCoords, goodRangeInCoords;
 
     [Header("Runtime stuff")]
-    private bool songStarted = false;
+    private bool fadeinFinished = false;
+    private bool gameStarted = false;
+    private bool musicStarted = false;
+    private bool finished = false;
     private readonly List<GameObject> notes = new();
     private ButtonType currentPress = ButtonType.None;
     private bool pressedButton = false;
@@ -44,19 +47,18 @@ public class RhythmManager : MonoBehaviour
         greatRangeInCoords = greatRange * movementSpeed;
         goodRangeInCoords = goodRange * movementSpeed;
         CreateButtons(songData.chart.notes);
-        Debug.Log("hello?");
     }
 
     private void Start()
     {
+        AudioManager.Instance.InitializeMusic(songData.music);
         LevelChanger.Instance.FadeIn();
-        buttonScroller.GetComponent<ButtonScroller>().movementSpeed = movementSpeed;
-        songStarted = true;
     }
 
     private void HandleStart()
     {
         Time.timeScale = 1.0f;
+        fadeinFinished = true;
         Debug.Log("start!");
     }
 
@@ -64,6 +66,7 @@ public class RhythmManager : MonoBehaviour
     {
         OnHit += HandleHit;
         OnMiss += HandleMiss;
+        LevelChanger.OnFadeInFinished += HandleStart;
         GameplayInputHandler.RhythmButtonPressed += OnInputPressed;
         GameplayInputHandler.RhythmButtonReleased += OnInputReleased;
     }
@@ -72,6 +75,7 @@ public class RhythmManager : MonoBehaviour
     {
         OnHit -= HandleHit;
         OnMiss -= HandleMiss;
+        LevelChanger.OnFadeInFinished -= HandleStart;
         GameplayInputHandler.RhythmButtonPressed -= OnInputPressed;
         GameplayInputHandler.RhythmButtonReleased -= OnInputReleased;
     }
@@ -167,7 +171,6 @@ public class RhythmManager : MonoBehaviour
 
     HitGrade VerifyHit(float noteDiff)
     {
-        Debug.Log($"{noteDiff}, {greatRangeInCoords}, {goodRangeInCoords}");
         if (noteDiff <= greatRangeInCoords) return HitGrade.Great;
         else return HitGrade.Good;
     }
@@ -191,11 +194,57 @@ public class RhythmManager : MonoBehaviour
         
         gradeText.DOFade(0, 0.25f).SetDelay(1f);
     }
+    bool SyncAudio()
+    {
+        if (!gameStarted)
+        {
+            if (Input.GetKeyDown(KeyCode.P) || !Application.isEditor)
+            {
+                gameStarted = true;
+                AudioManager.Instance.StartMusic();
+            }
+            else
+            {
+                return false;
+            }
+        }
+        if (!musicStarted)
+        {
+            if (AudioManager.Instance.GetMusicPosition() > 0)
+            {
+                musicStarted = true;
+                buttonScroller.GetComponent<ButtonScroller>().movementSpeed = movementSpeed;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void HandleSongEnd()
+    {
+        Debug.Log("level finished!");
+        buttonScroller.GetComponent<ButtonScroller>().movementSpeed = 0;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (!songStarted) return;
+        if (!fadeinFinished) return;
+        if (!SyncAudio()) return;
+
+        if (!AudioManager.IsPlaying())
+        {
+            if (!finished)
+            {
+                HandleSongEnd();
+                finished = true;
+            }
+        }
+
         if (notes.Count <= 0) return; // song is over
 
         var noteData = notes[0].GetComponent<ButtonScript>();
