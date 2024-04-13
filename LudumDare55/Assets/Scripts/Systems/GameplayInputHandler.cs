@@ -10,12 +10,18 @@ public class GameplayInputHandler : MonoBehaviour
     // INPUTS
     public static Action pause;
     public static Action back;
+    public static event Action<ButtonType> RhythmButtonPressed;
+    public static event Action<double> RhythmButtonReleased;
 
     // BOOLS TO CHECK STUFF
     private bool isPaused = false;
 
     private InputAction pauseAction;
     private InputAction backAction;
+    private InputAction rhythmPadAction;
+
+    // misc data
+    double holdDuration = 0f;
 
     // Start is called before the first frame update
     void Awake()
@@ -23,21 +29,26 @@ public class GameplayInputHandler : MonoBehaviour
         PlayerControls playerControls = new();
         pauseAction = playerControls.UI.Pause;
         backAction = playerControls.UI.Back;
+        rhythmPadAction = playerControls.Gameplay.RhythmPad;
     }
 
     private void OnEnable()
     {
         pauseAction.Enable();
         backAction.Enable();
+        rhythmPadAction.Enable();
         pauseAction.performed += PausePerformed;
         backAction.performed += BackPerformed;
         PauseMenuController.GamePaused += TogglePause;
+        rhythmPadAction.started += OnRhythmPress;
+        rhythmPadAction.canceled += OnRhythmPress;
     }
 
     private void OnDisable()
     {
         pauseAction.Disable();
         backAction.Disable();
+        rhythmPadAction.Disable();
         pauseAction.performed -= PausePerformed;
         backAction.performed -= BackPerformed;
         PauseMenuController.GamePaused -= TogglePause;
@@ -56,5 +67,44 @@ public class GameplayInputHandler : MonoBehaviour
     private void BackPerformed(InputAction.CallbackContext context)
     {
         back?.Invoke();
+    }
+
+    void OnRhythmPress(InputAction.CallbackContext context)
+    {
+        if (isPaused) return; // do not listen to input when paused
+        if (context.started)
+        {
+            ButtonType currentPress = ButtonType.None;
+            var vector = context.ReadValue<Vector2>();
+            switch (vector.x)
+            {
+                case -1f:
+                    currentPress = ButtonType.Left;
+                    break;
+                case 1f:
+                    currentPress = ButtonType.Right;
+                    break;
+                default:
+                    switch (vector.y)
+                    {
+                        case 1f:
+                            currentPress = ButtonType.Up;
+                            break;
+                        case -1f:
+                            currentPress = ButtonType.Down;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+            }
+            Debug.Log("invoke press");
+            RhythmButtonPressed?.Invoke(currentPress);
+        }
+        else if (context.canceled)
+        {
+            holdDuration = context.duration;
+            RhythmButtonReleased?.Invoke(holdDuration);
+        }
     }
 }
