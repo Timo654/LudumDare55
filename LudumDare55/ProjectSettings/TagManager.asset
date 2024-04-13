@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3764982591
+    locked: 0
+  - name: Frogs
+    uniqueID: 2401482055
+    locked: 0
+  - name: Fire
+    uniqueID: 2335028635
+    locked: 0

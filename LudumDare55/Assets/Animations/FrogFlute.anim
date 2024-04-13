@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FrogFront
+  m_Name: FrogFlute
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: a1b8ec4cbe37d88458b241549ee29c4a, type: 3}
-    - time: 2.6833334
-      value: {fileID: 21300000, guid: a184c5f49b3bb97458ef231d7ba0f210, type: 3}
-    - time: 2.9666667
-      value: {fileID: 21300000, guid: a1b8ec4cbe37d88458b241549ee29c4a, type: 3}
+      value: {fileID: 21300000, guid: e45fe710cfa9b44f080ff80599fbd5bf, type: 3}
+    - time: 0.65
+      value: {fileID: 21300000, guid: 931ff7d00161b45a989ff6a8a6e38dc9, type: 3}
+    - time: 1.2166667
+      value: {fileID: 21300000, guid: e45fe710cfa9b44f080ff80599fbd5bf, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,15 +48,15 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: a1b8ec4cbe37d88458b241549ee29c4a, type: 3}
-    - {fileID: 21300000, guid: a184c5f49b3bb97458ef231d7ba0f210, type: 3}
-    - {fileID: 21300000, guid: a1b8ec4cbe37d88458b241549ee29c4a, type: 3}
+    - {fileID: 21300000, guid: e45fe710cfa9b44f080ff80599fbd5bf, type: 3}
+    - {fileID: 21300000, guid: 931ff7d00161b45a989ff6a8a6e38dc9, type: 3}
+    - {fileID: 21300000, guid: e45fe710cfa9b44f080ff80599fbd5bf, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2.9833333
+    m_StopTime: 1.2333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
