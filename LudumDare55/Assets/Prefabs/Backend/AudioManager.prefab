@@ -46,39 +46,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TestSound>k__BackingField:
     Guid:
-      Data1: 446042272
-      Data2: 1236542038
-      Data3: 1705399227
-      Data4: 1293211995
-    Path: event:/ButtonClick
+      Data1: -249237861
+      Data2: 1124486473
+      Data3: -197077104
+      Data4: -34577480
+    Path: event:/SFX/WrongSound
+  <WrongSound>k__BackingField:
+    Guid:
+      Data1: -249237861
+      Data2: 1124486473
+      Data3: -197077104
+      Data4: -34577480
+    Path: event:/SFX/WrongSound
   <ButtonClick>k__BackingField:
     Guid:
-      Data1: 446042272
-      Data2: 1236542038
-      Data3: 1705399227
-      Data4: 1293211995
-    Path: event:/ButtonClick
+      Data1: 2034692724
+      Data2: 1221212223
+      Data3: 1993017984
+      Data4: 360875579
+    Path: event:/UI/ButtonClick
   <HoverButton>k__BackingField:
     Guid:
-      Data1: 900074556
-      Data2: 1254481583
-      Data3: 2076221065
-      Data4: -1188735086
-    Path: event:/ButtonSelect
+      Data1: 1742978648
+      Data2: 1194389133
+      Data3: -501061228
+      Data4: -1725295045
+    Path: event:/UI/ButtonSelect
   <BackSound>k__BackingField:
     Guid:
       Data1: -1956962921
       Data2: 1341735783
       Data3: -653063504
       Data4: -832558913
-    Path: event:/MenuBack
+    Path: event:/UI/MenuBack
   <MenuTheme>k__BackingField:
     Guid:
       Data1: 161308155
       Data2: 1180829224
       Data3: -932344656
       Data4: 1898800014
-    Path: event:/MenuMusic
+    Path: event:/Music/MenuMusic
+  <CreditsTheme>k__BackingField:
+    Guid:
+      Data1: 161308155
+      Data2: 1180829224
+      Data3: -932344656
+      Data4: 1898800014
+    Path: event:/Music/MenuMusic
 --- !u!1 &7960876150336709347
 GameObject:
   m_ObjectHideFlags: 0

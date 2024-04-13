@@ -5,7 +5,7 @@ public class FMODEvents : MonoBehaviour
 {
     [field: Header("SFX")]
     [field: SerializeField] public EventReference TestSound { get; private set; }
-
+    [field: SerializeField] public EventReference WrongSound { get; private set; }
 
     [field: Header("UI")]
     [field: SerializeField] public EventReference ButtonClick { get; private set; }

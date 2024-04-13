@@ -1,4 +1,5 @@
 using DG.Tweening;
+using FMOD.Studio;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -37,9 +38,11 @@ public class RhythmManager : MonoBehaviour
     public static event Action<NoteType, HitGrade, ButtonType> OnHit;
     public static event Action OnMiss;
     private int maxScore;
+    private EventInstance missSound;
     // Start is called before the first frame update
     void Awake()
     {
+        missSound = AudioManager.Instance.CreateInstance(FMODEvents.Instance.WrongSound);
         movementSpeed = ((1080.0f + hitter.localPosition.x) / songData.displayDuration) * 2;
         greatRangeInCoords = songData.greatRange * movementSpeed;
         goodRangeInCoords = songData.goodRange * movementSpeed;
@@ -110,6 +113,7 @@ public class RhythmManager : MonoBehaviour
 
     void HandleMiss()
     {
+        missSound.start();
         Debug.Log("miss!!");
         combo = 0;
         ResetHitData();
@@ -278,7 +282,7 @@ public class RhythmManager : MonoBehaviour
         if (musicPos != 0) timerFillImage.fillAmount = AudioManager.Instance.GetMusicPosition() / (float)songData.musicLengthMs;
     }
 
-    // Update is called once per frame
+    // TODO - make it easier to fail at the game
     void Update()
     {
         if (!fadeinFinished) return;
