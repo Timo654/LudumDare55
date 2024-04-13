@@ -19,11 +19,11 @@ public class ButtonScript : MonoBehaviour
     private double noteLength = 0f;
 
     // Start is called before the first frame update
-    public void InitializeNote(ButtonType button, NoteType note, float position)
+    public void InitializeNote(ButtonType button, NoteType note, float xPosition, float yPosition)
     {
         buttonType = button;
         noteType = note;
-        transform.localPosition = new Vector2(position, transform.localPosition.y);
+        transform.localPosition = new Vector2(xPosition, yPosition);
         m_image = GetComponent<Image>();
         switch (button)
         {

@@ -17,18 +17,22 @@ MonoBehaviour:
     notes:
     - startTiming: 3000
       endTiming: 0
+      verticalPosition: 0
       noteType: 0
       buttonType: 2
     - startTiming: 4000
       endTiming: 0
+      verticalPosition: 1
       noteType: 0
       buttonType: 1
     - startTiming: 5000
       endTiming: 0
+      verticalPosition: 2
       noteType: 0
       buttonType: 3
     - startTiming: 6000
       endTiming: 0
+      verticalPosition: 3
       noteType: 0
       buttonType: 3
   music:

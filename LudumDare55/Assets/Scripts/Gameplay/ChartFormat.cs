@@ -11,6 +11,7 @@ public class Note
 {
     public float startTiming;
     public float endTiming;
+    public int verticalPosition;
     public NoteType noteType;
     public ButtonType buttonType;
 }
