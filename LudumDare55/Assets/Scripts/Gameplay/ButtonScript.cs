@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,9 +14,11 @@ public class ButtonScript : MonoBehaviour
     [SerializeField] private Sprite leftSprite;
     [SerializeField] private Sprite downSprite;
     [SerializeField] private Image buttonSprite;
+    [SerializeField] private ParticleSystem hitParticleSystem;
+    public ParticleSystem fireParticleSystem;
     public GameObject endNote;
     public GameObject longLine;
-
+    public AnimationCurve bounceCurve;
     public double noteLength = 0f;
 
     // Start is called before the first frame update
@@ -45,21 +48,34 @@ public class ButtonScript : MonoBehaviour
 
     }
 
-    public void DestroyNote()
+    public void DestroyNote(HitGrade grade)
     {
         if (endNote != null)
         {
-            endNote.GetComponent<ButtonScript>().DestroyNote();
+            endNote.GetComponent<ButtonScript>().DestroyNote(grade);
             Destroy(longLine);
+            buttonSprite.DOFade(0f, 0.25f);
         }
-        buttonSprite.enabled = false;
+        else
+        {
+            buttonSprite.DOKill();
+            buttonSprite.transform.DOScale(Vector3.one * 3, 2f).SetEase(bounceCurve);
+            buttonSprite.DOFade(0f, 0.5f);
+            hitParticleSystem.Play();
+            if (grade == HitGrade.Great)
+            {
+                fireParticleSystem.Play();
+            }
+        }
+        //buttonSprite.enabled = false;
+
         StartCoroutine(DestroyCoroutine());
 
     }
 
     IEnumerator DestroyCoroutine()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         Destroy(gameObject);
 
     }

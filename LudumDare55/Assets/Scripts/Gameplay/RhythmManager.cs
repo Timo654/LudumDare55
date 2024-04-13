@@ -89,10 +89,10 @@ public class RhythmManager : MonoBehaviour
         holdDuration = duration;
     }
 
-    void DestroyNote()
+    void DestroyNote(HitGrade grade)
     {
         var noteData = notes[0].GetComponent<ButtonScript>();
-        noteData.DestroyNote();
+        noteData.DestroyNote(grade);
         notes.RemoveAt(0);
     }
 
@@ -113,7 +113,7 @@ public class RhythmManager : MonoBehaviour
         Debug.Log("miss!!");
         combo = 0;
         ResetHitData();
-        DestroyNote();
+        DestroyNote(HitGrade.Bad);
         UpdateStats();
         UpdateGrade(HitGrade.Bad);
     }
@@ -146,7 +146,7 @@ public class RhythmManager : MonoBehaviour
 
         combo += 1;
         ResetHitData();
-        DestroyNote();
+        DestroyNote(grade);
         UpdateStats();
     }
 
@@ -219,7 +219,7 @@ public class RhythmManager : MonoBehaviour
     void UpdateGrade(HitGrade grade)
     {
         gradeText.DOKill();
-        gradeText.DOFade(1, 0.25f);
+        gradeText.DOFade(1f, 0.25f);
         switch (grade)
         {
             case HitGrade.Good:
@@ -233,7 +233,7 @@ public class RhythmManager : MonoBehaviour
                 break;
         }
 
-        gradeText.DOFade(0, 0.25f).SetDelay(1f);
+        gradeText.DOFade(0f, 0.25f).SetDelay(1f);
     }
     bool SyncAudio()
     {
