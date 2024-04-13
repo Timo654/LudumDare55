@@ -13,10 +13,10 @@ public class ButtonScript : MonoBehaviour
     [SerializeField] private Sprite leftSprite;
     [SerializeField] private Sprite downSprite;
 
-    private GameObject endNote;
-    private GameObject longLine;
+    public GameObject endNote;
+    public GameObject longLine;
 
-    private double noteLength = 0f;
+    public double noteLength = 0f;
 
     // Start is called before the first frame update
     public void InitializeNote(ButtonType button, NoteType note, float xPosition, float yPosition)
@@ -48,6 +48,11 @@ public class ButtonScript : MonoBehaviour
 
     public void DestroyNote()
     {
+        if (endNote != null)
+        {
+            endNote.GetComponent<ButtonScript>().DestroyNote();
+            Destroy(longLine);
+        }
         m_image.enabled = false;
         StartCoroutine(DestroyCoroutine());
 

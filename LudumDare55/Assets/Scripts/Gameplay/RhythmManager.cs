@@ -1,10 +1,9 @@
 using DG.Tweening;
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 public class RhythmManager : MonoBehaviour
 {
@@ -13,6 +12,10 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] private float displayDuration = 3;
     [SerializeField] private float greatRange = 0.1f;
     [SerializeField] private float goodRange = 0.2f;
+    [Range(0f, 1f)]
+    [SerializeField] private int holdPercentGreat = 80;
+    [Range(0f, 1f)]
+    [SerializeField] private int holdPercentGood = 60;
     [Header("General objects")]
     [SerializeField] private GameObject buttonPrefab;
     [SerializeField] private Transform buttonScroller;
@@ -20,6 +23,7 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI comboText;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI gradeText;
+    [SerializeField] private GameObject longNoteLinePrefab;
 
     [Header("Stuff to calculate")]
     private float greatRangeInCoords, goodRangeInCoords;
@@ -154,15 +158,48 @@ public class RhythmManager : MonoBehaviour
     {
         foreach (Note note in inputNotes)
         {
-            var noteObject = Instantiate(buttonPrefab);
-            noteObject.transform.SetParent(buttonScroller, false);
-            var noteScript = noteObject.transform.GetComponent<ButtonScript>();
-            var yPosition = hitter.localPosition.y - 60 + (65 * note.verticalPosition); // TODO - adjust this to change the difference between vert lines
-            var requiredDistance = movementSpeed * (note.startTiming / 1000f) + hitter.localPosition.x;
-            noteScript.InitializeNote(note.buttonType, note.noteType, requiredDistance, yPosition);
+            var noteObject = CreateButton(note);
+            if (note.noteType == NoteType.Hold)
+            {
+                CreateEnd(note, noteObject, Color.cyan);
+            }
             notes.Add(noteObject); // for the list we'll use during gameplay
         }
     }
+    private GameObject CreateButton(Note note, bool isEnd = false)
+    {
+        var noteObject = Instantiate(buttonPrefab);
+        noteObject.transform.SetParent(buttonScroller, false);
+        var noteScript = noteObject.transform.GetComponent<ButtonScript>();
+        var yPosition = hitter.localPosition.y - 60 + (65 * note.verticalPosition); // TODO - adjust this to change the difference between vert lines
+        var requiredDistance = hitter.localPosition.x;
+        if (isEnd)
+        {
+            requiredDistance += movementSpeed * (note.endTiming / 1000f);
+        }
+        else
+        {
+            requiredDistance += movementSpeed * (note.startTiming / 1000f);
+        }
+
+        noteScript.InitializeNote(note.buttonType, note.noteType, requiredDistance, yPosition);
+        return noteObject;
+    }
+    void CreateEnd(Note note, GameObject noteObject, Color color)
+    {
+        var endNoteObject = CreateButton(note, true);
+        var noteData = noteObject.GetComponent<ButtonScript>();
+        noteData.endNote = endNoteObject;
+        noteData.noteLength = (note.endTiming - note.startTiming) / 1000f;
+        var line = Instantiate(longNoteLinePrefab);
+        line.transform.SetParent(buttonScroller, false);
+        line.transform.localPosition = noteObject.transform.localPosition;
+        line.GetComponent<RectTransform>().sizeDelta = new Vector2(endNoteObject.transform.localPosition.x - noteObject.transform.localPosition.x, 20);
+        line.transform.SetSiblingIndex(0);
+        line.GetComponent<Image>().color = color;
+        noteData.longLine = line;
+    }
+
     void ResetCurrentFrameData()
     {
         pressedButton = false;
@@ -175,6 +212,12 @@ public class RhythmManager : MonoBehaviour
         else return HitGrade.Good;
     }
 
+    HitGrade VerifyHold(double noteLength)
+    {
+        if (holdDuration > noteLength * (holdPercentGreat / 100.0f)) return HitGrade.Great;
+        else if (holdDuration > noteLength * (holdPercentGood / 100.0f)) return HitGrade.Good;
+        else return HitGrade.Bad;
+    }
     void UpdateGrade(HitGrade grade)
     {
         gradeText.DOKill();
@@ -191,7 +234,7 @@ public class RhythmManager : MonoBehaviour
                 gradeText.text = ":(";
                 break;
         }
-        
+
         gradeText.DOFade(0, 0.25f).SetDelay(1f);
     }
     bool SyncAudio()
@@ -248,8 +291,19 @@ public class RhythmManager : MonoBehaviour
         if (notes.Count <= 0) return; // song is over
 
         var noteData = notes[0].GetComponent<ButtonScript>();
+
         float noteDiff = hitter.position.x - notes[0].transform.position.x;
         float absDiff = Mathf.Abs(noteDiff);
+
+
+        float endNoteDiff = 0f;
+        float absEndDiff = 0f;
+        if (noteData.endNote != null)
+        {
+            endNoteDiff = hitter.position.x - noteData.endNote.transform.position.x;
+            absEndDiff = Mathf.Abs(endNoteDiff);
+        }
+
         switch (noteData.noteType)
         {
             case NoteType.Regular:
@@ -261,10 +315,29 @@ public class RhythmManager : MonoBehaviour
                     else OnMiss?.Invoke();
                 }
                 break;
+            case NoteType.Hold:
+                if ((absDiff <= goodRangeInCoords) && pressedButton) // start hold
+                {
+                    if (currentPress == noteData.buttonType && !holdStarted) holdStarted = true;
+                    else
+                    {
+                        var hitGrade = VerifyHold(noteData.noteLength);
+                        if (hitGrade != HitGrade.Bad) OnHit?.Invoke(noteData.noteType, hitGrade, noteData.buttonType);
+                        else OnMiss?.Invoke();
+                    }
+                }
+                else if (endNoteDiff > goodRangeInCoords) OnMiss?.Invoke();
+                else if (holdStarted && holdDuration > 0f)
+                {
+                    var hitGrade = VerifyHold(noteData.noteLength);
+                    if (hitGrade != HitGrade.Bad) OnHit?.Invoke(noteData.noteType, hitGrade, noteData.buttonType);
+                    else OnMiss?.Invoke();
+                }
+                else holdDuration = 0;
+                break;
         }
         ResetCurrentFrameData();
     }
-
 }
 
 public enum HitGrade
