@@ -274,6 +274,7 @@ public class RhythmManager : MonoBehaviour
     private void HandleSongEnd()
     {
         Debug.Log("level finished!");
+        SaveManager.Instance.gameData.previousScore = score;
         buttonScroller.GetComponent<ButtonScroller>().movementSpeed = 0;
     }
 
