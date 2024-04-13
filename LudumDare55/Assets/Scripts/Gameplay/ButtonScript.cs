@@ -12,7 +12,7 @@ public class ButtonScript : MonoBehaviour
     [SerializeField] private Sprite rightSprite;
     [SerializeField] private Sprite leftSprite;
     [SerializeField] private Sprite downSprite;
-
+    [SerializeField] private Image buttonSprite;
     public GameObject endNote;
     public GameObject longLine;
 
@@ -24,20 +24,19 @@ public class ButtonScript : MonoBehaviour
         buttonType = button;
         noteType = note;
         transform.localPosition = new Vector2(xPosition, yPosition);
-        m_image = GetComponent<Image>();
         switch (button)
         {
             case ButtonType.Up:
-                m_image.sprite = upSprite;
+                buttonSprite.sprite = upSprite;
                 break;
             case ButtonType.Right:
-                m_image.sprite = rightSprite;
+                buttonSprite.sprite = rightSprite;
                 break;
             case ButtonType.Left:
-                m_image.sprite = leftSprite;
+                buttonSprite.sprite = leftSprite;
                 break;
             case ButtonType.Down:
-                m_image.sprite = downSprite;
+                buttonSprite.sprite = downSprite;
                 break;
             default:
                 Debug.Log("Invalid button type " + button);
@@ -53,7 +52,7 @@ public class ButtonScript : MonoBehaviour
             endNote.GetComponent<ButtonScript>().DestroyNote();
             Destroy(longLine);
         }
-        m_image.enabled = false;
+        buttonSprite.enabled = false;
         StartCoroutine(DestroyCoroutine());
 
     }
