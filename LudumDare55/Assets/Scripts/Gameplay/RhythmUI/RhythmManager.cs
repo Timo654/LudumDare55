@@ -279,7 +279,7 @@ public class RhythmManager : MonoBehaviour
         SaveManager.Instance.gameData.previousScore = score;
         buttonScroller.GetComponent<ButtonScroller>().movementSpeed = 0;
         EndingType endingType;
-        if ((score / maxScore) > 0.6)
+        if ((score / (float)maxScore) > 0.6f)
         {
             endingType = EndingType.Good;
         } 
