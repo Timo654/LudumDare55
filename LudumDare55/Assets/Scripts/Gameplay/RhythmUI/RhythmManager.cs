@@ -17,6 +17,7 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI comboText;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI gradeText;
+    [SerializeField] private TextMeshProUGUI tutorialText;
     [SerializeField] private GameObject longNoteLinePrefab;
     [SerializeField] private Image timerFillImage;
 
@@ -255,6 +256,7 @@ public class RhythmManager : MonoBehaviour
         {
             if (AudioManager.Instance.GetMusicPosition() > 0)
             {
+                tutorialText.DOFade(0f, 0.25f).SetDelay(5f);
                 musicStarted = true;
                 buttonScroller.GetComponent<ButtonScroller>().movementSpeed = movementSpeed;
                 return true;
