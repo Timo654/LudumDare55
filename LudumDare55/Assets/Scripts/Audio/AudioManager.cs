@@ -166,6 +166,7 @@ public class AudioManager : MonoBehaviour
         musicEventInstance.getTimelinePosition(out int position);
         return position;
     }
+
     public void StopSFX()
     {
         sfxBus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);

@@ -9,13 +9,6 @@ public class RhythmManager : MonoBehaviour
 {
     [Header("Song data")]
     [SerializeField] private SongData songData;
-    [SerializeField] private float displayDuration = 3;
-    [SerializeField] private float greatRange = 0.1f;
-    [SerializeField] private float goodRange = 0.2f;
-    [Range(0f, 1f)]
-    [SerializeField] private int holdPercentGreat = 80;
-    [Range(0f, 1f)]
-    [SerializeField] private int holdPercentGood = 60;
     [Header("General objects")]
     [SerializeField] private GameObject buttonPrefab;
     [SerializeField] private Transform buttonScroller;
@@ -24,7 +17,7 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI gradeText;
     [SerializeField] private GameObject longNoteLinePrefab;
-
+    [SerializeField] private Image timerFillImage;
     [Header("Stuff to calculate")]
     private float greatRangeInCoords, goodRangeInCoords;
 
@@ -47,10 +40,11 @@ public class RhythmManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        movementSpeed = ((1080.0f + hitter.localPosition.x) / displayDuration) * 2;
-        greatRangeInCoords = greatRange * movementSpeed;
-        goodRangeInCoords = goodRange * movementSpeed;
+        movementSpeed = ((1080.0f + hitter.localPosition.x) / songData.displayDuration) * 2;
+        greatRangeInCoords = songData.greatRange * movementSpeed;
+        goodRangeInCoords = songData.goodRange * movementSpeed;
         CreateButtons(songData.chart.notes);
+        timerFillImage.fillAmount = 0f;
         Debug.Log($"Max score is {maxScore}");
     }
 
@@ -218,8 +212,8 @@ public class RhythmManager : MonoBehaviour
 
     HitGrade VerifyHold(double noteLength)
     {
-        if (holdDuration > noteLength * (holdPercentGreat / 100.0f)) return HitGrade.Great;
-        else if (holdDuration > noteLength * (holdPercentGood / 100.0f)) return HitGrade.Good;
+        if (holdDuration > noteLength * (songData.holdPercentGreat / 100.0f)) return HitGrade.Great;
+        else if (holdDuration > noteLength * (songData.holdPercentGood / 100.0f)) return HitGrade.Good;
         else return HitGrade.Bad;
     }
     void UpdateGrade(HitGrade grade)
@@ -278,6 +272,12 @@ public class RhythmManager : MonoBehaviour
         buttonScroller.GetComponent<ButtonScroller>().movementSpeed = 0;
     }
 
+    private void UpdateTimerValue()
+    {
+        int musicPos = AudioManager.Instance.GetMusicPosition();
+        if (musicPos != 0) timerFillImage.fillAmount = AudioManager.Instance.GetMusicPosition() / (float)songData.musicLengthMs;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -293,6 +293,7 @@ public class RhythmManager : MonoBehaviour
             }
         }
 
+        UpdateTimerValue();
         if (notes.Count <= 0) return; // song is over
 
         var noteData = notes[0].GetComponent<ButtonScript>();
