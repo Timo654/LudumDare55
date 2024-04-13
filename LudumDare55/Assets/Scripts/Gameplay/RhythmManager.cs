@@ -43,7 +43,7 @@ public class RhythmManager : MonoBehaviour
     private int score;
     public static event Action<NoteType, HitGrade, ButtonType> OnHit;
     public static event Action OnMiss;
-
+    private int maxScore;
     // Start is called before the first frame update
     void Awake()
     {
@@ -51,6 +51,7 @@ public class RhythmManager : MonoBehaviour
         greatRangeInCoords = greatRange * movementSpeed;
         goodRangeInCoords = goodRange * movementSpeed;
         CreateButtons(songData.chart.notes);
+        Debug.Log($"Max score is {maxScore}");
     }
 
     private void Start()
@@ -142,6 +143,7 @@ public class RhythmManager : MonoBehaviour
                 // TODO AUDIO ClickButton.start();
                 break;
             case NoteType.Hold:
+                score += 20;
                 // TODO AUDIO ClickButton.start();
                 break;
             default:
@@ -175,10 +177,12 @@ public class RhythmManager : MonoBehaviour
         var requiredDistance = hitter.localPosition.x;
         if (isEnd)
         {
+            maxScore += 20;
             requiredDistance += movementSpeed * (note.endTiming / 1000f);
         }
         else
         {
+            maxScore += 10;
             requiredDistance += movementSpeed * (note.startTiming / 1000f);
         }
 
@@ -310,7 +314,6 @@ public class RhythmManager : MonoBehaviour
                 if (noteDiff > goodRangeInCoords) OnMiss?.Invoke();
                 else if (absDiff <= goodRangeInCoords && pressedButton)
                 {
-                    print($"hit? {absDiff} and {noteDiff} and {goodRangeInCoords}, expected {noteData.buttonType}, got {currentPress}");
                     if (currentPress == noteData.buttonType) OnHit?.Invoke(noteData.noteType, VerifyHit(absDiff), noteData.buttonType);
                     else OnMiss?.Invoke();
                 }
