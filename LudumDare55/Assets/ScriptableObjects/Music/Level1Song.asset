@@ -667,7 +667,7 @@ MonoBehaviour:
       Data3: -1790225475
       Data4: -1185248762
     Path: event:/Music/EasyMainTheme
-  musicLengthMs: 125366
+  musicLengthMs: 85366
   displayDuration: 3
   greatRange: 100
   goodRange: 200

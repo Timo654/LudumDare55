@@ -121,6 +121,7 @@ public class GameData
 public class RuntimeData
 {
     public string previousSceneName;
+    public EndingData currentEnding;
 }
 
 
