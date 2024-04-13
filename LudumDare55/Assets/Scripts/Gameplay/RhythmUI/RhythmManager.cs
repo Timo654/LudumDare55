@@ -20,7 +20,7 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI tutorialText;
     [SerializeField] private GameObject longNoteLinePrefab;
     [SerializeField] private Image timerFillImage;
-
+    [SerializeField] private EndingData[] endings;
     [Header("Runtime stuff")]
     private bool fadeinFinished = false;
     private bool gameStarted = false;
@@ -43,8 +43,12 @@ public class RhythmManager : MonoBehaviour
     {
         missSound = AudioManager.Instance.CreateInstance(FMODEvents.Instance.WrongSound);
         movementSpeed = ((1080.0f + hitter.localPosition.x) / songData.displayDuration) * 2;
-        // TODO REMOVE THIS IS TESTING
-        songData.chart = ChartLoader.LoadChart("chart.json");
+        if (SaveManager.Instance.runtimeData.currentSong != null)
+        {
+            songData = SaveManager.Instance.runtimeData.currentSong;
+            SaveManager.Instance.runtimeData.currentSong = null;
+        }
+        songData.chart = ChartLoader.LoadChart(songData.chartFile);
         CreateButtons(songData.chart.notes);
         timerFillImage.fillAmount = 0f;
         Debug.Log($"Max score is {maxScore}");
@@ -127,7 +131,7 @@ public class RhythmManager : MonoBehaviour
         switch (grade)
         {
             case HitGrade.Good:
-                score += 5; // TODO - verify if this is correct
+                score += 5;
                 break;
             case HitGrade.Great:
                 score += 10;
@@ -274,6 +278,35 @@ public class RhythmManager : MonoBehaviour
         Debug.Log("level finished!");
         SaveManager.Instance.gameData.previousScore = score;
         buttonScroller.GetComponent<ButtonScroller>().movementSpeed = 0;
+        EndingType endingType;
+        if ((score / maxScore) > 0.6)
+        {
+            endingType = EndingType.Good;
+        } 
+        else
+        {
+            endingType = EndingType.Bad;
+        }
+
+        if (songData.nextSong != null)
+        {
+            SaveManager.Instance.runtimeData.currentSong = songData.nextSong;
+            LevelChanger.Instance.FadeToLevel("GameScene");
+        }
+        else
+        {
+            foreach (EndingData ending in endings)
+            {
+                if (ending.endingType == endingType)
+                {
+                    SaveManager.Instance.runtimeData.currentEnding = ending;
+                    break;
+                }
+            }
+            LevelChanger.Instance.FadeToLevel("Ending");
+        }
+        
+        
     }
 
     private int UpdateTimerValue()
@@ -283,7 +316,6 @@ public class RhythmManager : MonoBehaviour
         return musicPos;
     }
 
-    // TODO - make it easier to fail at the game
     void Update()
     {
         if (!fadeinFinished) return;
@@ -319,6 +351,7 @@ public class RhythmManager : MonoBehaviour
                     if (currentPress == noteData.buttonType) OnHit?.Invoke(noteData.noteType, VerifyHit(timeUntilNote), noteData.buttonType);
                     else OnMiss?.Invoke();
                 }
+                else if (timeUntilNote < songData.badRange && pressedButton) OnMiss?.Invoke();
                 break;
 
             case NoteType.Hold:
@@ -339,6 +372,7 @@ public class RhythmManager : MonoBehaviour
                     if (hitGrade != HitGrade.Bad) OnHit?.Invoke(noteData.noteType, hitGrade, noteData.buttonType);
                     else OnMiss?.Invoke();
                 }
+                else if (timeUntilNote < songData.badRange && pressedButton) OnMiss?.Invoke();
                 else holdDuration = 0;
                 break;
         }

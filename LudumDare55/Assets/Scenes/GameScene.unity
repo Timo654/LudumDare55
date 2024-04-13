@@ -255,6 +255,9 @@ MonoBehaviour:
   tutorialText: {fileID: 260610562}
   longNoteLinePrefab: {fileID: 3793281785248616024, guid: aaf0b526246ee194e88c070019793ae2, type: 3}
   timerFillImage: {fileID: 1623668712}
+  endings:
+  - {fileID: 11400000, guid: dde92a157e80ca54ea43a9c252d5e5e8, type: 2}
+  - {fileID: 11400000, guid: 1b431b5ac2dbc384bab31af186e60fe3, type: 2}
 --- !u!1 &260610560
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +318,7 @@ MonoBehaviour:
   m_text: 'Press Arrow keys on your keyboard or controller to the beat.
 
     Hit
-    the notes to summon your god!'
+    the notes to summon your ancestor!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 07ee0d486bde419449261c8340298966, type: 2}
   m_sharedMaterial: {fileID: 5942110929737964715, guid: 07ee0d486bde419449261c8340298966, type: 2}
@@ -378,7 +381,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -42.582825, y: 0, z: -67.74512, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

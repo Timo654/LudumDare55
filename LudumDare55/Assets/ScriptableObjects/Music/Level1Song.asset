@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c70b46e558ae704cac76a19fd9104d4, type: 3}
   m_Name: Level1Song
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Level 1 theme
   chart:
     notes:
     - startTiming: 2500
@@ -660,6 +660,7 @@ MonoBehaviour:
       verticalPosition: 0
       noteType: 0
       buttonType: 3
+  chartFile: level1.json
   music:
     Guid:
       Data1: 728209307
@@ -671,5 +672,7 @@ MonoBehaviour:
   displayDuration: 3
   greatRange: 100
   goodRange: 200
+  badRange: 500
+  nextSong: {fileID: 0}
   holdPercentGreat: 80
   holdPercentGood: 60

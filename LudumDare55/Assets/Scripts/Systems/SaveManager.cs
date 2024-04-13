@@ -122,6 +122,7 @@ public class RuntimeData
 {
     public string previousSceneName;
     public EndingData currentEnding;
+    public SongData currentSong;
 }
 
 
