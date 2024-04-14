@@ -20,6 +20,7 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI gradeText;
     [SerializeField] private TextMeshProUGUI tutorialText;
+    [SerializeField] private Image tutorialBG;
     [SerializeField] private GameObject longNoteLinePrefab;
     [SerializeField] private Image timerFillImage;
     [SerializeField] private EndingData[] endings;
@@ -154,7 +155,6 @@ public class RhythmManager : MonoBehaviour
         DestroyNote(HitGrade.Bad);
         UpdateStats();
         UpdateGrade(HitGrade.Bad);
-        UpdateSpriteOnHit(HitGrade.Bad);
     }
 
     void HandleHit(NoteType note, HitGrade grade, ButtonType button)
@@ -197,16 +197,18 @@ public class RhythmManager : MonoBehaviour
         else
         {
             currentlyEmoting = true;
+            fluteFrogAnim.enabled = false;
             switch (newGrade)
             {
                 case HitGrade.Great:
+                    Debug.Log("happy frog");
                     fluteFrogSprite.sprite = happyFrog;
                     break;
                 case HitGrade.Bad:
+                    Debug.Log("sad frog");
                     fluteFrogSprite.sprite = sadFrog;
                     break;
-            }
-            fluteFrogAnim.speed = 0f;
+            } 
             prevEmoteGrade = newGrade;
         }
         yield return new WaitForSeconds(1f);
@@ -214,7 +216,7 @@ public class RhythmManager : MonoBehaviour
         {
             prevEmoteGrade = HitGrade.Good; // as good as null tbf
             currentlyEmoting = false;
-            fluteFrogAnim.speed = 1f;
+            fluteFrogAnim.enabled = true;
             fluteFrogSprite.sprite = defaultFrog;
         }
     }
@@ -288,22 +290,7 @@ public class RhythmManager : MonoBehaviour
     }
     void UpdateGrade(HitGrade grade)
     {
-        gradeText.DOKill();
-        gradeText.DOFade(1f, 0.25f).SetEase(Ease.InOutBounce);
-        switch (grade)
-        {
-            case HitGrade.Good:
-                gradeText.text = ":/";
-                break;
-            case HitGrade.Great:
-                gradeText.text = ":)";
-                break;
-            case HitGrade.Bad:
-                gradeText.text = ":(";
-                break;
-        }
-
-        gradeText.DOFade(0f, 0.25f).SetDelay(1f);
+        UpdateSpriteOnHit(grade);
     }
     bool SyncAudio()
     {
@@ -324,6 +311,7 @@ public class RhythmManager : MonoBehaviour
             if (AudioManager.Instance.GetMusicPosition() > 0)
             {
                 tutorialText.DOFade(0f, 0.25f).SetDelay(5f);
+                tutorialBG.DOFade(0f, 0.25f).SetDelay(5f);
                 musicStarted = true;
                 buttonScroller.GetComponent<ButtonScroller>().movementSpeed = movementSpeed;
                 return true;
@@ -342,7 +330,17 @@ public class RhythmManager : MonoBehaviour
         SaveManager.Instance.gameData.previousScore = score;
         buttonScroller.GetComponent<ButtonScroller>().movementSpeed = 0;
         EndingType endingType;
-        if ((score / (float)maxScore) > 0.6f)
+        float scoreReq = 0.75f;
+        switch (SaveManager.Instance.gameData.difficulty)
+        {
+            case Difficulty.Easy:
+                scoreReq = 0.75f;
+                break;
+            case Difficulty.Hard:
+                scoreReq = 0.8f;
+                break;
+        }
+        if ((score / (float)maxScore) > scoreReq)
         {
             endingType = EndingType.Good;
         } 
