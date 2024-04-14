@@ -36,6 +36,8 @@ public class RhythmManager : MonoBehaviour
     private int score;
     public static event Action<NoteType, HitGrade, ButtonType> OnHit;
     public static event Action OnMiss;
+    public static event Action<int> OnGetMaxScore; // name might be misleading, this is when the game figures out what max score is.
+    public static event Action<int> OnGetScore; 
     private int maxScore;
     private EventInstance missSound;
     // Start is called before the first frame update
@@ -51,6 +53,7 @@ public class RhythmManager : MonoBehaviour
         songData.chart = ChartLoader.LoadChart(songData.chartFile);
         CreateButtons(songData.chart.notes);
         timerFillImage.fillAmount = 0f;
+        OnGetMaxScore?.Invoke(maxScore);
         Debug.Log($"Max score is {maxScore}");
     }
 
