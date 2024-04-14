@@ -151,10 +151,11 @@ public class RhythmManager : MonoBehaviour
         missSound.start();
         Debug.Log("miss!!");
         combo = 0;
+        UpdateGrade(HitGrade.Bad);
         ResetHitData();
         DestroyNote(HitGrade.Bad);
         UpdateStats();
-        UpdateGrade(HitGrade.Bad);
+        
     }
 
     void HandleHit(NoteType note, HitGrade grade, ButtonType button)
@@ -201,11 +202,9 @@ public class RhythmManager : MonoBehaviour
             switch (newGrade)
             {
                 case HitGrade.Great:
-                    Debug.Log("happy frog");
                     fluteFrogSprite.sprite = happyFrog;
                     break;
                 case HitGrade.Bad:
-                    Debug.Log("sad frog");
                     fluteFrogSprite.sprite = sadFrog;
                     break;
             } 
@@ -290,7 +289,7 @@ public class RhythmManager : MonoBehaviour
     }
     void UpdateGrade(HitGrade grade)
     {
-        UpdateSpriteOnHit(grade);
+        StartCoroutine(UpdateSpriteOnHit(grade));
     }
     bool SyncAudio()
     {
