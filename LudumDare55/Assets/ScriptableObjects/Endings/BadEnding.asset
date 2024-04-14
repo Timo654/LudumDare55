@@ -16,10 +16,10 @@ MonoBehaviour:
   endingSprite: {fileID: 21300000, guid: 179849f7370c74d388cd94618f40a15a, type: 3}
   endingMusic:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 917896832
+      Data2: 1331150361
+      Data3: 600504960
+      Data4: 1408302562
+    Path: event:/Music/BadEndingTheme
   endingText: wrong creature...
   endingSprite2: {fileID: 0}

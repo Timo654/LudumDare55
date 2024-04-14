@@ -1,53 +1,32 @@
+using DG.Tweening;
+using TMPro;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BootAnim : MonoBehaviour
+public class WebGLWarningAnim : MonoBehaviour
 {
-    public Sprite[] logos;
+    public TextMeshProUGUI text;
     private float delayTime;
-    private bool isReady = false;
     private bool animOver = false;
-    private int logoIndex = 0;
-    private Image imageRenderer;
     private float startTime;
+    private bool ended = false;
     private LogoState logoState = LogoState.Start;
     private bool mobileTouch = false;
     // Start is called before the first frame update
     void Start()
     {
-        imageRenderer = GetComponent<Image>();
         UIFader.InitializeFader();
         LevelChanger.Instance.FadeIn();
     }
 
-    private void OnEnable()
-    {
-        LoadBankAndScene.OnBanksLoaded += OnReady;
-    }
-
-    private void OnDisable()
-    {
-        LoadBankAndScene.OnBanksLoaded -= OnReady;
-    }
-
-    void OnReady()
-    {
-        isReady = true;
-    }
     // Update is called once per frame
     void Update()
     {
-        if (isReady && animOver)
+        if (animOver && !ended)
         {
-            isReady = false; // no need to call it multiple times
-            if (BuildConstants.isWebGL)
-            {
-                LevelChanger.Instance.FadeToLevel("WebGLWarning");
-            }
-            else
-            {
-                LevelChanger.Instance.FadeToLevel("MainMenu");
-            }       
+            ended = true;
+            LevelChanger.Instance.FadeToLevel("MainMenu");
         }
 
         if (Input.touchCount > 0)
@@ -74,23 +53,18 @@ public class BootAnim : MonoBehaviour
                     break;
                 case LogoState.FadeIn:
                     logoState = LogoState.FadeOut;
-                    imageRenderer.sprite = logos[logoIndex];
-                    UIFader.FadeInImage(imageRenderer);
-                    delayTime = 2f;
+                    text.DOFade(1f, 2f);
+                    delayTime = 5f;
                     break;
                 case LogoState.FadeOut:
                     logoState = LogoState.End;
-                    UIFader.FadeOutImage(imageRenderer);
+                    text.DOFade(0f, 1f);
                     delayTime = 1f;
                     break;
                 case LogoState.End:
                     delayTime = 0f;
                     logoState = LogoState.Start;
-                    logoIndex++;
-                    if (logoIndex >= logos.Length)
-                    {
-                        animOver = true;
-                    }
+                    animOver = true;
                     break;
             }
         }

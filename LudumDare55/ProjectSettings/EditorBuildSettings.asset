@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/BankLoader.unity
     guid: fcd7c6f7e2cde1d4f9ab8c979dedf92e
   - enabled: 1
+    path: Assets/Scenes/WebGLWarning.unity
+    guid: 216b1988546ee474f9b5c60689d9a162
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 0cbabe87de3851847b87ce6124821e39
   - enabled: 1
