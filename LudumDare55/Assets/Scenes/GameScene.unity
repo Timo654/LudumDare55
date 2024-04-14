@@ -252,6 +252,7 @@ MonoBehaviour:
   scoreText: {fileID: 1328144359}
   gradeText: {fileID: 444762194}
   tutorialText: {fileID: 260610562}
+  tutorialBG: {fileID: 1245485696}
   longNoteLinePrefab: {fileID: 3793281785248616024, guid: aaf0b526246ee194e88c070019793ae2, type: 3}
   timerFillImage: {fileID: 1623668712}
   endings:
