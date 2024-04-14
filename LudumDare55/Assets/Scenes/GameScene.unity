@@ -332,7 +332,9 @@ MonoBehaviour:
   m_text: 'Press Arrow keys on your keyboard or controller to the beat.
 
     Hit
-    the notes to summon your ancestor!'
+    the notes to summon your ancestor!
+
+    Hold the key on longer notes.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 07ee0d486bde419449261c8340298966, type: 2}
   m_sharedMaterial: {fileID: 5942110929737964715, guid: 07ee0d486bde419449261c8340298966, type: 2}
