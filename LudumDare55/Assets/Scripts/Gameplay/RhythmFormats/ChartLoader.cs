@@ -4,31 +4,15 @@ using UnityEngine;
 
 public class ChartLoader
 {
-    // will chatgpt work
     public static Chart LoadChart(string filename, Difficulty difficulty)
     {
         string json;
 
         filename = $"{filename}_{difficulty}.json";
-        // Check if we're running in WebGL
         if (BuildConstants.isWebGL)
         {
-            // Use UnityWebRequest to load the file from StreamingAssets
-            string filePath = Path.Combine(Application.streamingAssetsPath, filename);
-            UnityEngine.Networking.UnityWebRequest www = UnityEngine.Networking.UnityWebRequest.Get(filePath);
-            www.SendWebRequest();
-
-            while (!www.isDone) { } // Wait for the request to complete
-
-            if (www.result == UnityEngine.Networking.UnityWebRequest.Result.Success)
-            {
-                json = www.downloadHandler.text;
-            }
-            else
-            {
-                Debug.LogError("Error loading file: " + www.error);
-                return null; // Handle the error appropriately
-            }
+            // TODO - rework this to work in coroutine
+            json = "";
         }
         else
         {

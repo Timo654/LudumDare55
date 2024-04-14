@@ -58,6 +58,10 @@ public class RhythmManager : MonoBehaviour
         timerFillImage.fillAmount = 0f;
         OnGetMaxScore?.Invoke(maxScore);
         Debug.Log($"Max score is {maxScore}");
+        if (songData.levelId == 1)
+        {
+            tutorialText.text = "Good... \nWe must repeat this once more to summon Them...";
+        }
     }
 
     private void Start()

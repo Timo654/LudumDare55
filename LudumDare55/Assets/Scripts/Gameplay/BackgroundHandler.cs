@@ -29,6 +29,7 @@ public class BackgroundHandler : MonoBehaviour
         // or divide it before and have subscores to check for idk, handle it somehow eventually to adds backgrounds and frogs
         if (levelId == 1) // level 2
         {
+            tiktaalik.DOKill(); // lõpetame hetkel käivad tween animatsioonid
             var currentFade = currentScore / (maxScore * 0.6f); 
             tiktaalik.DOFade(currentFade, 0.5f);
         }
