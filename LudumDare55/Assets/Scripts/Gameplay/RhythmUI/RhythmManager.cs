@@ -227,7 +227,7 @@ public class RhythmManager : MonoBehaviour
             var noteObject = CreateButton(note);
             if (note.noteType == NoteType.Hold)
             {
-                CreateEnd(note, noteObject, Color.cyan);
+                CreateEnd(note, noteObject, new Color(1f, 0.9607843f, 0.8901961f, 1f));
             }
             notes.Add(noteObject); // for the list we'll use during gameplay
         }
