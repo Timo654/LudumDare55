@@ -751,8 +751,8 @@ MonoBehaviour:
     Path: event:/Music/HardMainTheme
   musicLengthMs: 85200
   displayDuration: 3
-  greatRange: 150
-  goodRange: 250
+  greatRange: 100
+  goodRange: 200
   badRange: 500
   nextSong: {fileID: 0}
   holdPercentGreat: 80

@@ -266,8 +266,8 @@ MonoBehaviour:
     Path: event:/Music/EasyMainTheme
   musicLengthMs: 85366
   displayDuration: 3
-  greatRange: 150
-  goodRange: 250
+  greatRange: 100
+  goodRange: 200
   badRange: 500
   nextSong: {fileID: 11400000, guid: 1ba667517e4147648a5e3944fa3a3022, type: 2}
   holdPercentGreat: 80

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -8,12 +9,17 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject menuButtons;
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject exitButton;
+    [SerializeField] private GameObject playButton;
     [SerializeField] private GameObject optionsButton;
     [SerializeField] private Button optionsBackButton;
+    [SerializeField] private Button difficultyBackButton;
+    [SerializeField] private GameObject difficultyPanel;
+    [SerializeField] private GameObject easyButton;
     private PlayerControls playerControls;
     private InputAction backAction;
     private CanvasGroup menuButtonsCG;
     private CanvasGroup optionsMenuCG;
+    private CanvasGroup difficultyPanelCG;
     private GameObject lastSelect;
     private void Awake()
     {
@@ -22,6 +28,7 @@ public class MainMenuController : MonoBehaviour
         backAction = playerControls.UI.Back;
         menuButtonsCG = menuButtons.AddComponent<CanvasGroup>();
         optionsMenuCG = optionsMenu.AddComponent<CanvasGroup>();
+        difficultyPanelCG = difficultyPanel.GetComponent<CanvasGroup>();
         lastSelect = EventSystem.current.firstSelectedGameObject;
     }
     // Start is called before the first frame update
@@ -60,13 +67,22 @@ public class MainMenuController : MonoBehaviour
     public void OnBackButton(InputAction.CallbackContext context)
     {
         if (optionsBackButton.IsActive() && optionsBackButton.interactable) optionsBackButton.onClick.Invoke();
+        else if (difficultyBackButton.IsActive() && difficultyBackButton.interactable) difficultyBackButton.onClick.Invoke();
     }
 
     public void OnPlayPressed()
     {
-        LevelChanger.Instance.FadeToLevel("Opening");
+        difficultyPanelCG.DOFade(1f, 1f);
+        difficultyPanelCG.blocksRaycasts = true;
+        EventSystem.current.SetSelectedGameObject(easyButton);
     }
 
+    public void OnExitDifficulty()
+    {
+        difficultyPanelCG.DOFade(0f, 1f);
+        difficultyPanelCG.blocksRaycasts = false;
+        EventSystem.current.SetSelectedGameObject(playButton);
+    }
     public void OnOptionsPressed()
     {
         if (optionsMenu.activeSelf) return;
@@ -74,6 +90,20 @@ public class MainMenuController : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(optionsBackButton.gameObject);
     }
 
+    private void OnDifficultySelect(Difficulty difficulty)
+    {
+        SaveManager.Instance.gameData.difficulty = difficulty;
+        LevelChanger.Instance.FadeToLevel("Opening");
+    }
+
+    public void SelectEasy()
+    {
+        OnDifficultySelect(Difficulty.Easy);
+    }
+    public void SelectHard()
+    {
+        OnDifficultySelect(Difficulty.Hard);
+    }
     public void OnCreditsPressed()
     {
         LevelChanger.Instance.FadeToLevel("Credits");
