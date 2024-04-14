@@ -128,8 +128,8 @@ public class RhythmManager : MonoBehaviour
 
     void UpdateStats()
     {
-        scoreText.text = $"S: {score}";
-        comboText.text = $"C: {combo}";
+        scoreText.text = $"Score: {score}";
+        comboText.text = $"Combo: {combo}";
     }
 
     void HandleMiss()
