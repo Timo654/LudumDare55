@@ -13,9 +13,16 @@ MonoBehaviour:
   m_Name: OPSubtitles
   m_EditorClassIdentifier: 
   subtitles:
-  - startPosition: 2
-    endPosition: 5
-    text: Subtitle 1 test, in 2 seconds
-  - startPosition: 7
-    endPosition: 12
-    text: Subtitle 2
+  - startPosition: 1.094
+    endPosition: 5.586
+    text: We must perform a summoning ritual to save our sacred pond.
+  - startPosition: 6.747
+    endPosition: 9.691
+    text: Just a couple more days and it will dry up!
+  - startPosition: 10.919
+    endPosition: 14.251
+    text: It hasn't rained for several months...
+  - startPosition: 15.344
+    endPosition: 22.512
+    text: Our ancestor, Tiktaalik, the first creature to cross from water to land
+      can bring rain to us.

@@ -258,6 +258,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dde92a157e80ca54ea43a9c252d5e5e8, type: 2}
   - {fileID: 11400000, guid: 1b431b5ac2dbc384bab31af186e60fe3, type: 2}
   chartLoader: {fileID: 30603838}
+  fluteFrog: {fileID: 1416265542}
+  happyFrog: {fileID: 21300000, guid: e56a5fe5c89b4b844ae7744052675b85, type: 3}
+  sadFrog: {fileID: 21300000, guid: f94c419b9ef82de46935a8a7f0d13e27, type: 3}
+  defaultFrog: {fileID: 21300000, guid: e45fe710cfa9b44f080ff80599fbd5bf, type: 3}
 --- !u!114 &30603838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2322,7 +2326,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: e45fe710cfa9b44f080ff80599fbd5bf, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

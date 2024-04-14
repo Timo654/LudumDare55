@@ -1,7 +1,9 @@
 using DG.Tweening;
 using FMOD.Studio;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,7 +24,14 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] private Image timerFillImage;
     [SerializeField] private EndingData[] endings;
     [SerializeField] private ChartLoader chartLoader;
+    [SerializeField] private GameObject fluteFrog;
+    [SerializeField] private Sprite happyFrog;
+    [SerializeField] private Sprite sadFrog;
+    [SerializeField] private Sprite defaultFrog;
     [Header("Runtime stuff")]
+    private Image fluteFrogSprite;
+    private Animator fluteFrogAnim;
+    private float lastEmoteTime;
     private bool fadeinFinished = false;
     private bool gameStarted = false;
     private bool musicStarted = false;
@@ -35,6 +44,8 @@ public class RhythmManager : MonoBehaviour
     private bool holdStarted = false;
     private int combo;
     private int score;
+    private bool currentlyEmoting;
+    private HitGrade prevEmoteGrade;
     public static event Action<NoteType, HitGrade, ButtonType> OnHit;
     public static event Action OnMiss;
     public static event Action<int> OnGetMaxScore; // name might be misleading, this is when the game figures out what max score is.
@@ -45,6 +56,8 @@ public class RhythmManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        fluteFrogAnim = fluteFrog.GetComponent<Animator>();
+        fluteFrogSprite = fluteFrog.GetComponent<Image>();
         OnSongLoad?.Invoke(songData.levelId);
         missSound = AudioManager.Instance.CreateInstance(FMODEvents.Instance.WrongSound);
         movementSpeed = ((1080.0f + hitter.localPosition.x) / songData.displayDuration) * 2;
@@ -141,6 +154,7 @@ public class RhythmManager : MonoBehaviour
         DestroyNote(HitGrade.Bad);
         UpdateStats();
         UpdateGrade(HitGrade.Bad);
+        UpdateSpriteOnHit(HitGrade.Bad);
     }
 
     void HandleHit(NoteType note, HitGrade grade, ButtonType button)
@@ -153,6 +167,8 @@ public class RhythmManager : MonoBehaviour
                 break;
             case HitGrade.Great:
                 score += 10;
+                // TODO update sprite
+                StartCoroutine(UpdateSpriteOnHit(grade));
                 break;
         }
 
@@ -174,6 +190,33 @@ public class RhythmManager : MonoBehaviour
         DestroyNote(grade);
         UpdateStats();
     }
+
+    IEnumerator UpdateSpriteOnHit(HitGrade newGrade)
+    {
+        if (currentlyEmoting && newGrade == prevEmoteGrade) yield break;
+        else
+        {
+            currentlyEmoting = true;
+            switch (newGrade)
+            {
+                case HitGrade.Great:
+                    fluteFrogSprite.sprite = happyFrog;
+                    break;
+                case HitGrade.Bad:
+                    fluteFrogSprite.sprite = sadFrog;
+                    break;
+            }
+            fluteFrogAnim.speed = 0f;
+            prevEmoteGrade = newGrade;
+        }
+        yield return new WaitForSeconds(1f);
+        if (prevEmoteGrade == newGrade)
+        {
+            fluteFrogAnim.speed = 1f;
+            fluteFrogSprite.sprite = defaultFrog;
+        }
+    }
+
 
     void CreateButtons(Note[] inputNotes)
     {
