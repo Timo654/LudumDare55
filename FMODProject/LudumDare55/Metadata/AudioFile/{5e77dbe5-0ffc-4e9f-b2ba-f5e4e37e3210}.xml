@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{5e77dbe5-0ffc-4e9f-b2ba-f5e4e37e3210}">
+		<property name="assetPath">
+			<value>CreditsTheme.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>13</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{76bd25b2-9cc6-4b32-b273-5b65f1ba33cc}</destination>
+		</relationship>
+	</object>
+</objects>
