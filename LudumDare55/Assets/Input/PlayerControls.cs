@@ -62,6 +62,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SkipOpening"",
+                    ""type"": ""Button"",
+                    ""id"": ""51261897-2b58-4cb8-8cf7-568806d29375"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SkipCredits"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2ec3d510-39b9-4fe3-b524-05545fc061c4"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""SkipOpening"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7d0d6cae-e3ef-4a46-abbb-54ccb4c9d9c8"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SkipOpening"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -501,6 +532,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_UI_Back = m_UI.FindAction("Back", throwIfNotFound: true);
         m_UI_Interact = m_UI.FindAction("Interact", throwIfNotFound: true);
         m_UI_SkipCredits = m_UI.FindAction("SkipCredits", throwIfNotFound: true);
+        m_UI_SkipOpening = m_UI.FindAction("SkipOpening", throwIfNotFound: true);
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_RhythmPad = m_Gameplay.FindAction("RhythmPad", throwIfNotFound: true);
@@ -569,6 +601,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Back;
     private readonly InputAction m_UI_Interact;
     private readonly InputAction m_UI_SkipCredits;
+    private readonly InputAction m_UI_SkipOpening;
     public struct UIActions
     {
         private @PlayerControls m_Wrapper;
@@ -577,6 +610,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Back => m_Wrapper.m_UI_Back;
         public InputAction @Interact => m_Wrapper.m_UI_Interact;
         public InputAction @SkipCredits => m_Wrapper.m_UI_SkipCredits;
+        public InputAction @SkipOpening => m_Wrapper.m_UI_SkipOpening;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -598,6 +632,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @SkipCredits.started += instance.OnSkipCredits;
             @SkipCredits.performed += instance.OnSkipCredits;
             @SkipCredits.canceled += instance.OnSkipCredits;
+            @SkipOpening.started += instance.OnSkipOpening;
+            @SkipOpening.performed += instance.OnSkipOpening;
+            @SkipOpening.canceled += instance.OnSkipOpening;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -614,6 +651,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @SkipCredits.started -= instance.OnSkipCredits;
             @SkipCredits.performed -= instance.OnSkipCredits;
             @SkipCredits.canceled -= instance.OnSkipCredits;
+            @SkipOpening.started -= instance.OnSkipOpening;
+            @SkipOpening.performed -= instance.OnSkipOpening;
+            @SkipOpening.canceled -= instance.OnSkipOpening;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -701,6 +741,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnBack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnSkipCredits(InputAction.CallbackContext context);
+        void OnSkipOpening(InputAction.CallbackContext context);
     }
     public interface IGameplayActions
     {

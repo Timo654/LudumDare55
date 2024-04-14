@@ -64,7 +64,7 @@ public class MainMenuController : MonoBehaviour
 
     public void OnPlayPressed()
     {
-        LevelChanger.Instance.FadeToLevel("GameScene");
+        LevelChanger.Instance.FadeToLevel("Opening");
     }
 
     public void OnOptionsPressed()

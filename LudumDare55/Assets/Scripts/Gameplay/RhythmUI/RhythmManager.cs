@@ -192,7 +192,7 @@ public class RhythmManager : MonoBehaviour
         var noteObject = Instantiate(buttonPrefab);
         noteObject.transform.SetParent(buttonScroller, false);
         var noteScript = noteObject.transform.GetComponent<ButtonScript>();
-        var yPosition = hitter.localPosition.y - 80 + (85 * note.verticalPosition); // TODO - adjust this to change the difference between vert lines
+        var yPosition = hitter.localPosition.y - 160 - (85 * note.verticalPosition); // TODO - adjust this to change the difference between vert lines
         var requiredDistance = hitter.localPosition.x;
         if (isEnd)
         {
@@ -244,7 +244,7 @@ public class RhythmManager : MonoBehaviour
     void UpdateGrade(HitGrade grade)
     {
         gradeText.DOKill();
-        gradeText.DOFade(1f, 0.25f);
+        gradeText.DOFade(1f, 0.25f).SetEase(Ease.InOutBounce);
         switch (grade)
         {
             case HitGrade.Good:

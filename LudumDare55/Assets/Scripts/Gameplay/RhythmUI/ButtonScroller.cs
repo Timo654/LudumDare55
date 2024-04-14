@@ -3,8 +3,8 @@ using UnityEngine;
 public class ButtonScroller : MonoBehaviour
 {
     public float movementSpeed;
-    void FixedUpdate()
+    void Update()
     {
-        transform.localPosition += movementSpeed * Time.fixedDeltaTime * Vector3.left;
+        transform.localPosition += movementSpeed * Time.deltaTime * Vector3.left;
     }
 }
