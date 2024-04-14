@@ -95,13 +95,16 @@
 		<property name="timelockedOffset">
 			<value>0.10000000000000001</value>
 		</property>
+		<property name="pitch">
+			<value>0.699999988</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{04f9d1ac-a725-4922-8ff8-cb1b1b3f29fb}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{e516686c-9474-40dd-a9be-8b20c064a731}">
 		<property name="volume">
-			<value>1</value>
+			<value>3.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -128,7 +131,11 @@
 			<destination>{d4a3c3b0-c9c6-4289-abdd-e84367b409e2}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{4a2c328c-75c0-4f3f-8e98-7cdd13d51658}" />
+	<object class="MixerBusPanner" id="{4a2c328c-75c0-4f3f-8e98-7cdd13d51658}">
+		<property name="stereoPan">
+			<value>26</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{075df8e6-8054-4cf5-befb-9d141ae58ad1}" />
 	<object class="MixerBusFader" id="{d4a3c3b0-c9c6-4289-abdd-e84367b409e2}" />
 </objects>
