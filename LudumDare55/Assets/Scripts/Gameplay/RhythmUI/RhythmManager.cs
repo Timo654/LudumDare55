@@ -37,7 +37,8 @@ public class RhythmManager : MonoBehaviour
     public static event Action<NoteType, HitGrade, ButtonType> OnHit;
     public static event Action OnMiss;
     public static event Action<int> OnGetMaxScore; // name might be misleading, this is when the game figures out what max score is.
-    public static event Action<int> OnGetScore; 
+    public static event Action<int> OnGetScore;
+    public static event Action<int> OnChartLoaded;
     private int maxScore;
     private EventInstance missSound;
     // Start is called before the first frame update
@@ -50,7 +51,9 @@ public class RhythmManager : MonoBehaviour
             songData = SaveManager.Instance.runtimeData.currentSong;
             SaveManager.Instance.runtimeData.currentSong = null;
         }
-        songData.chart = ChartLoader.LoadChart(songData.chartFile);
+
+        songData.chart = ChartLoader.LoadChart(songData.chartFile, SaveManager.Instance.gameData.difficulty);
+        OnChartLoaded?.Invoke(songData.levelId);
         CreateButtons(songData.chart.notes);
         timerFillImage.fillAmount = 0f;
         OnGetMaxScore?.Invoke(maxScore);
@@ -153,7 +156,7 @@ public class RhythmManager : MonoBehaviour
             default:
                 break;
         }
-
+        OnGetScore?.Invoke(score);
         combo += 1;
         ResetHitData();
         DestroyNote(grade);
@@ -395,4 +398,10 @@ public enum HitGrade
     Great,
     Good,
     Bad // miss
+}
+
+public enum Difficulty
+{
+    Easy,
+    Hard
 }

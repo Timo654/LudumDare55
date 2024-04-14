@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class SongData : ScriptableObject
 {
+    public int levelId;
     public string Name;
     public Chart chart; // this is overwritten by file
     public string chartFile; // json file read from streamingassets.

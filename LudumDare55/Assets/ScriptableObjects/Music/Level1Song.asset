@@ -12,655 +12,251 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c70b46e558ae704cac76a19fd9104d4, type: 3}
   m_Name: Level1Song
   m_EditorClassIdentifier: 
+  levelId: 0
   Name: Level 1 theme
   chart:
     notes:
-    - startTiming: 2500
-      endTiming: 2.5
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
     - startTiming: 1000
-      endTiming: 1
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 5093.75
-      endTiming: 5.09375
-      verticalPosition: 0
+      endTiming: 0
+      verticalPosition: 3
       noteType: 0
       buttonType: 1
-    - startTiming: 7531.25
-      endTiming: 7.53125
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 3500
-      endTiming: 3.5
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 6000
-      endTiming: 6
+    - startTiming: 2500
+      endTiming: 0
       verticalPosition: 0
       noteType: 0
       buttonType: 2
-    - startTiming: 8125
-      endTiming: 8.125
+    - startTiming: 3500
+      endTiming: 0
       verticalPosition: 0
+      noteType: 0
+      buttonType: 2
+    - startTiming: 5093.75
+      endTiming: 6000
+      verticalPosition: 3
+      noteType: 1
+      buttonType: 1
+    - startTiming: 7531.25
+      endTiming: 0
+      verticalPosition: 3
       noteType: 0
       buttonType: 1
     - startTiming: 8531.25
-      endTiming: 8.53125
+      endTiming: 0
       verticalPosition: 0
       noteType: 0
-      buttonType: 1
+      buttonType: 2
     - startTiming: 10083.662
-      endTiming: 10.083662
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
-    - startTiming: 10991.981
-      endTiming: 10.9919815
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
+      endTiming: 10991.981
+      verticalPosition: 1
+      noteType: 1
+      buttonType: 3
     - startTiming: 12292.323
-      endTiming: 12.292323
-      verticalPosition: 0
+      endTiming: 0
+      verticalPosition: 1
       noteType: 0
       buttonType: 3
-    - startTiming: 12656.25
-      endTiming: 12.65625
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 13250
-      endTiming: 13.25
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
     - startTiming: 13593.75
-      endTiming: 13.59375
-      verticalPosition: 0
-      noteType: 0
+      endTiming: 14500
+      verticalPosition: 1
+      noteType: 1
       buttonType: 3
-    - startTiming: 15125
-      endTiming: 15.125
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
-    - startTiming: 15437.5
-      endTiming: 15.4375
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
     - startTiming: 15781.25
-      endTiming: 15.78125
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 16156.25
-      endTiming: 16.15625
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 3
-    - startTiming: 17000
-      endTiming: 17
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
-    - startTiming: 17680.613
-      endTiming: 17.680613
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
-    - startTiming: 20187.44
-      endTiming: 20.18744
-      verticalPosition: 0
+      endTiming: 0
+      verticalPosition: 3
       noteType: 0
       buttonType: 1
-    - startTiming: 20804.2
-      endTiming: 20.8042
+    - startTiming: 17000
+      endTiming: 0
+      verticalPosition: 3
+      noteType: 0
+      buttonType: 1
+    - startTiming: 20187.44
+      endTiming: 0
       verticalPosition: 0
       noteType: 0
-      buttonType: 3
+      buttonType: 2
     - startTiming: 21425.932
-      endTiming: 21.425932
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 22125
-      endTiming: 22.125
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 22750
-      endTiming: 22.75
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 23366.76
-      endTiming: 23.366758
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 23988.492
-      endTiming: 23.988493
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
-    - startTiming: 24625
-      endTiming: 24.625
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
-    - startTiming: 25234.254
-      endTiming: 25.234255
-      verticalPosition: 0
+      endTiming: 0
+      verticalPosition: 1
       noteType: 0
       buttonType: 3
-    - startTiming: 25851.014
-      endTiming: 25.851013
+    - startTiming: 22750
+      endTiming: 0
+      verticalPosition: 2
+      noteType: 0
+      buttonType: 4
+    - startTiming: 23988.492
+      endTiming: 0
+      verticalPosition: 3
+      noteType: 0
+      buttonType: 1
+    - startTiming: 25234.254
+      endTiming: 0
       verticalPosition: 0
       noteType: 0
       buttonType: 2
     - startTiming: 26472.746
-      endTiming: 26.472746
+      endTiming: 0
       verticalPosition: 0
       noteType: 0
-      buttonType: 1
-    - startTiming: 27109.254
-      endTiming: 27.109255
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
+      buttonType: 2
     - startTiming: 27750
-      endTiming: 27.75
-      verticalPosition: 0
+      endTiming: 0
+      verticalPosition: 3
       noteType: 0
-      buttonType: 3
-    - startTiming: 28366.76
-      endTiming: 28.366758
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
+      buttonType: 1
     - startTiming: 28988.492
-      endTiming: 28.988493
+      endTiming: 0
       verticalPosition: 0
       noteType: 0
-      buttonType: 0
-    - startTiming: 29625
-      endTiming: 29.625
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
+      buttonType: 2
     - startTiming: 30292.555
-      endTiming: 30.292555
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 30909.312
-      endTiming: 30.909313
-      verticalPosition: 0
+      endTiming: 0
+      verticalPosition: 1
       noteType: 0
       buttonType: 3
     - startTiming: 31531.047
-      endTiming: 31.531046
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 32167.555
-      endTiming: 32.167553
-      verticalPosition: 0
+      endTiming: 0
+      verticalPosition: 1
       noteType: 0
       buttonType: 3
     - startTiming: 32800.055
-      endTiming: 32.800056
-      verticalPosition: 0
+      endTiming: 0
+      verticalPosition: 2
       noteType: 0
-      buttonType: 3
-    - startTiming: 33416.812
-      endTiming: 33.416813
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
+      buttonType: 4
     - startTiming: 34038.547
-      endTiming: 34.038548
-      verticalPosition: 0
+      endTiming: 0
+      verticalPosition: 2
       noteType: 0
-      buttonType: 0
-    - startTiming: 34675.055
-      endTiming: 34.675056
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 3
+      buttonType: 4
     - startTiming: 35375
-      endTiming: 35.375
-      verticalPosition: 0
-      noteType: 0
+      endTiming: 36250
+      verticalPosition: 1
+      noteType: 1
       buttonType: 3
-    - startTiming: 36250
-      endTiming: 36.25
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
     - startTiming: 37826.414
-      endTiming: 37.826416
-      verticalPosition: 0
+      endTiming: 0
+      verticalPosition: 2
       noteType: 0
-      buttonType: 2
-    - startTiming: 38125
-      endTiming: 38.125
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 38437.5
-      endTiming: 38.4375
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 3
-    - startTiming: 38750
-      endTiming: 38.75
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
+      buttonType: 4
     - startTiming: 39375
-      endTiming: 39.375
-      verticalPosition: 0
-      noteType: 0
+      endTiming: 40406.25
+      verticalPosition: 1
+      noteType: 1
       buttonType: 3
-    - startTiming: 40406.25
-      endTiming: 40.40625
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 41369.47
-      endTiming: 41.36947
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
     - startTiming: 41687.5
-      endTiming: 41.6875
-      verticalPosition: 0
+      endTiming: 0
+      verticalPosition: 1
       noteType: 0
-      buttonType: 0
-    - startTiming: 42000
-      endTiming: 42
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
+      buttonType: 3
     - startTiming: 42937.5
-      endTiming: 42.9375
-      verticalPosition: 0
-      noteType: 0
+      endTiming: 43900.72
+      verticalPosition: 1
+      noteType: 1
       buttonType: 3
-    - startTiming: 43900.72
-      endTiming: 43.90072
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 44218.75
-      endTiming: 44.21875
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 44531.25
-      endTiming: 44.53125
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
     - startTiming: 45442.51
-      endTiming: 45.442513
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
-    - startTiming: 46405.73
-      endTiming: 46.40573
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
-    - startTiming: 46723.76
-      endTiming: 46.723763
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
-    - startTiming: 47036.26
-      endTiming: 47.036263
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
+      endTiming: 46331.117
+      verticalPosition: 2
+      noteType: 1
+      buttonType: 4
     - startTiming: 47987.473
-      endTiming: 47.987473
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 48950.69
-      endTiming: 48.95069
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 49268.723
-      endTiming: 49.268723
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 3
-    - startTiming: 49581.223
-      endTiming: 49.581223
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 3
+      endTiming: 48832.31
+      verticalPosition: 2
+      noteType: 1
+      buttonType: 4
     - startTiming: 50474.406
-      endTiming: 50.474403
-      verticalPosition: 0
-      noteType: 0
+      endTiming: 51375
+      verticalPosition: 1
+      noteType: 1
       buttonType: 3
-    - startTiming: 51437.625
-      endTiming: 51.437626
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
-    - startTiming: 51755.656
-      endTiming: 51.755653
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
-    - startTiming: 52068.156
-      endTiming: 52.068153
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
     - startTiming: 53068.156
-      endTiming: 53.068153
+      endTiming: 0
       verticalPosition: 0
       noteType: 0
-      buttonType: 0
-    - startTiming: 54031.375
-      endTiming: 54.031376
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
+      buttonType: 2
     - startTiming: 54349.406
-      endTiming: 54.349403
-      verticalPosition: 0
+      endTiming: 0
+      verticalPosition: 2
       noteType: 0
-      buttonType: 0
-    - startTiming: 54661.906
-      endTiming: 54.661903
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
+      buttonType: 4
     - startTiming: 55661.906
-      endTiming: 55.661903
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 3
-    - startTiming: 56500
-      endTiming: 56.5
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
-    - startTiming: 56818.03
-      endTiming: 56.81803
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
-    - startTiming: 57130.53
-      endTiming: 57.13053
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
-    - startTiming: 57468.75
-      endTiming: 57.46875
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
+      endTiming: 56500
+      verticalPosition: 2
+      noteType: 1
+      buttonType: 4
     - startTiming: 57786.78
-      endTiming: 57.78678
-      verticalPosition: 0
+      endTiming: 0
+      verticalPosition: 2
       noteType: 0
-      buttonType: 1
-    - startTiming: 58099.28
-      endTiming: 58.09928
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
-    - startTiming: 58437.5
-      endTiming: 58.4375
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 3
-    - startTiming: 58755.53
-      endTiming: 58.75553
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
+      buttonType: 4
     - startTiming: 59068.03
-      endTiming: 59.06803
+      endTiming: 0
       verticalPosition: 0
       noteType: 0
       buttonType: 2
-    - startTiming: 66610.07
-      endTiming: 66.61007
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
-    - startTiming: 65646.85
-      endTiming: 65.64685
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
-    - startTiming: 64735.586
-      endTiming: 64.73559
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
-    - startTiming: 64423.086
-      endTiming: 64.42309
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
-    - startTiming: 64105.06
-      endTiming: 64.10506
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
-    - startTiming: 63141.836
-      endTiming: 63.141838
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
-    - startTiming: 62204.336
-      endTiming: 62.204338
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 61573.81
-      endTiming: 61.573807
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
     - startTiming: 60610.586
-      endTiming: 60.610588
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 3
-    - startTiming: 61891.836
-      endTiming: 61.891838
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 74235.71
-      endTiming: 74.23571
-      verticalPosition: 0
-      noteType: 0
+      endTiming: 61573.81
+      verticalPosition: 3
+      noteType: 1
       buttonType: 1
-    - startTiming: 72272.49
-      endTiming: 72.27249
-      verticalPosition: 0
+    - startTiming: 63141.836
+      endTiming: 64105.06
+      verticalPosition: 1
+      noteType: 1
+      buttonType: 3
+    - startTiming: 65646.85
+      endTiming: 66535.45
+      verticalPosition: 1
+      noteType: 1
+      buttonType: 3
+    - startTiming: 68191.81
+      endTiming: 69036.65
+      verticalPosition: 2
+      noteType: 1
+      buttonType: 4
+    - startTiming: 70679.69
+      endTiming: 0
+      verticalPosition: 3
       noteType: 0
       buttonType: 1
     - startTiming: 71959.99
-      endTiming: 71.95999
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
-    - startTiming: 71641.96
-      endTiming: 71.64196
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 3
-    - startTiming: 70679.69
-      endTiming: 70.67969
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
-    - startTiming: 69785.56
-      endTiming: 69.78556
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 3
-    - startTiming: 69473.06
-      endTiming: 69.47306
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 3
-    - startTiming: 69155.03
-      endTiming: 69.15503
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
-    - startTiming: 68191.81
-      endTiming: 68.19181
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
-    - startTiming: 67240.6
-      endTiming: 67.2406
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
-    - startTiming: 66928.1
-      endTiming: 66.9281
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 71031.25
-      endTiming: 71.03125
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
-    - startTiming: 71187.5
-      endTiming: 71.1875
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 71343.75
-      endTiming: 71.34375
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 3
-    - startTiming: 73936.555
-      endTiming: 73.936554
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
-    - startTiming: 73780.305
-      endTiming: 73.780304
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
-    - startTiming: 73624.055
-      endTiming: 73.624054
-      verticalPosition: 0
+      endTiming: 0
+      verticalPosition: 1
       noteType: 0
       buttonType: 3
     - startTiming: 73272.49
-      endTiming: 73.27249
+      endTiming: 0
       verticalPosition: 0
       noteType: 0
-      buttonType: 3
-    - startTiming: 74866.24
-      endTiming: 74.86624
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 3
+      buttonType: 2
     - startTiming: 74553.74
-      endTiming: 74.55374
-      verticalPosition: 0
+      endTiming: 0
+      verticalPosition: 2
       noteType: 0
-      buttonType: 1
-    - startTiming: 75177.1
-      endTiming: 75.1771
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 3
-    - startTiming: 75500
-      endTiming: 75.5
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
-    - startTiming: 76459.32
-      endTiming: 76.45932
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 76303.07
-      endTiming: 76.30307
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 0
-    - startTiming: 76146.82
-      endTiming: 76.14682
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 3
+      buttonType: 4
     - startTiming: 75795.26
-      endTiming: 75.79526
+      endTiming: 0
       verticalPosition: 0
       noteType: 0
       buttonType: 2
-    - startTiming: 77380.53
-      endTiming: 77.38053
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 1
     - startTiming: 77068.03
-      endTiming: 77.06803
-      verticalPosition: 0
+      endTiming: 0
+      verticalPosition: 1
       noteType: 0
-      buttonType: 2
-    - startTiming: 76750
-      endTiming: 76.75
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
+      buttonType: 3
     - startTiming: 78313.34
-      endTiming: 78.31335
-      verticalPosition: 0
+      endTiming: 0
+      verticalPosition: 1
       noteType: 0
       buttonType: 3
-    - startTiming: 78948.45
-      endTiming: 78.94845
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 2
     - startTiming: 79313.34
-      endTiming: 79.31335
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 3
-    - startTiming: 79948.45
-      endTiming: 79.94845
+      endTiming: 0
       verticalPosition: 0
       noteType: 0
       buttonType: 2
-    - startTiming: 80218.75
-      endTiming: 80.21875
-      verticalPosition: 0
-      noteType: 0
-      buttonType: 3
-  chartFile: level1.json
+  chartFile: level1
   music:
     Guid:
       Data1: 728209307
@@ -673,6 +269,6 @@ MonoBehaviour:
   greatRange: 100
   goodRange: 200
   badRange: 500
-  nextSong: {fileID: 0}
+  nextSong: {fileID: 11400000, guid: 1ba667517e4147648a5e3944fa3a3022, type: 2}
   holdPercentGreat: 80
   holdPercentGood: 60

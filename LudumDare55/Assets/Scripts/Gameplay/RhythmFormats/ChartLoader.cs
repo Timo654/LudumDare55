@@ -5,10 +5,11 @@ using UnityEngine;
 public class ChartLoader
 {
     // will chatgpt work
-    public static Chart LoadChart(string filename)
+    public static Chart LoadChart(string filename, Difficulty difficulty)
     {
         string json;
 
+        filename = $"{filename}_{difficulty}.json";
         // Check if we're running in WebGL
         if (BuildConstants.isWebGL)
         {

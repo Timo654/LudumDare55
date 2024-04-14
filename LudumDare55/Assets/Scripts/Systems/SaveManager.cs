@@ -116,6 +116,7 @@ public class GameData
 {
     public int previousScore = 0;
     public float inputOffset = 0f;
+    public Difficulty difficulty = Difficulty.Easy;
 }
 
 [Serializable]
