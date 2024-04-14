@@ -212,6 +212,8 @@ public class RhythmManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         if (prevEmoteGrade == newGrade)
         {
+            prevEmoteGrade = HitGrade.Good; // as good as null tbf
+            currentlyEmoting = false;
             fluteFrogAnim.speed = 1f;
             fluteFrogSprite.sprite = defaultFrog;
         }

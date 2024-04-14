@@ -63,6 +63,13 @@ public class PauseMenuController : MonoBehaviour
         LevelChanger.OnFadeInFinished -= HandleFadeIn;
     }
 
+    private void OnApplicationFocus(bool focus)
+    {
+        if (!focus)
+        {
+            PauseGame();
+        }
+    }
     void HandleFadeIn()
     {
         canPause = true;

@@ -88,11 +88,11 @@ MonoBehaviour:
     Path: event:/Music/MenuMusic
   <CreditsTheme>k__BackingField:
     Guid:
-      Data1: 844819286
-      Data2: 1205505758
-      Data3: 1997409955
-      Data4: 1438940337
-    Path: event:/Music/MenuMusic
+      Data1: -1995583608
+      Data2: 1260526971
+      Data3: 948271806
+      Data4: -1787822158
+    Path: event:/Music/CreditsTheme
 --- !u!1 &7960876150336709347
 GameObject:
   m_ObjectHideFlags: 0
