@@ -1,784 +1,791 @@
 {
   "notes": [
     {
-      "startTiming": 1000.0,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 2500.0,
+      "startTiming": 2582.2302020369298,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 3,
       "verticalPosition": 2
     },
     {
-      "startTiming": 3500.0,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 4,
-      "verticalPosition": 1
-    },
-    {
-      "startTiming": 5093.75,
-      "endTiming": 6000.0,
-      "noteType": 1,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 7531.25,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 4,
-      "verticalPosition": 1
-    },
-    {
-      "startTiming": 8125.0,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 8531.25,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 4,
-      "verticalPosition": 1
-    },
-    {
-      "startTiming": 10083.6616623058,
-      "endTiming": 10991.981373192402,
-      "noteType": 1,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 12292.323324611587,
+      "startTiming": 3582.2302020369298,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 1,
       "verticalPosition": 0
     },
     {
-      "startTiming": 12656.25,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 13250.0,
+      "startTiming": 5082.230202036931,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 2,
       "verticalPosition": 3
     },
     {
-      "startTiming": 13593.75,
-      "endTiming": 14500.0,
-      "noteType": 1,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 15125.0,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 4,
-      "verticalPosition": 1
-    },
-    {
-      "startTiming": 15437.5,
+      "startTiming": 6082.230202036931,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 2,
       "verticalPosition": 3
     },
     {
-      "startTiming": 15781.25,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 16156.25,
-      "endTiming": 17000.0,
-      "noteType": 1,
-      "buttonType": 2,
-      "verticalPosition": 3
-    },
-    {
-      "startTiming": 17680.612836367272,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 2,
-      "verticalPosition": 3
-    },
-    {
-      "startTiming": 20187.440373545527,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 20804.199529517973,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 2,
-      "verticalPosition": 3
-    },
-    {
-      "startTiming": 21425.93254965148,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 2,
-      "verticalPosition": 3
-    },
-    {
-      "startTiming": 22125.0,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 4,
-      "verticalPosition": 1
-    },
-    {
-      "startTiming": 22750.0,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 23366.759155972446,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 23988.492176105963,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 4,
-      "verticalPosition": 1
-    },
-    {
-      "startTiming": 24625.0,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 25234.2545423092,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 25851.013698281633,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 26472.74671841518,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 27109.2545423092,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 4,
-      "verticalPosition": 1
-    },
-    {
-      "startTiming": 27750.0,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 28366.75915597243,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 4,
-      "verticalPosition": 1
-    },
-    {
-      "startTiming": 28988.492176105978,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 2,
-      "verticalPosition": 3
-    },
-    {
-      "startTiming": 29625.0,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 30292.554171155814,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 30909.313327128246,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 31531.046347261792,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 32167.554171155814,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 4,
-      "verticalPosition": 1
-    },
-    {
-      "startTiming": 32800.05458286701,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 33416.81373883944,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 34038.54675897298,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 34675.05458286701,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 35375.0,
-      "endTiming": 36250.000000000015,
-      "noteType": 1,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 37826.415591110446,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 38125.0,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 4,
-      "verticalPosition": 1
-    },
-    {
-      "startTiming": 38437.5,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 38750.0,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 4,
-      "verticalPosition": 1
-    },
-    {
-      "startTiming": 39375.0,
-      "endTiming": 40406.25,
+      "startTiming": 7675.980202036931,
+      "endTiming": 8582.23020203693,
       "noteType": 1,
       "buttonType": 4,
       "verticalPosition": 1
     },
     {
-      "startTiming": 41369.46988081374,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 41687.5,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 42000.0,
+      "startTiming": 10113.480202036928,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 2,
       "verticalPosition": 3
     },
     {
-      "startTiming": 42937.5,
-      "endTiming": 43900.71988081374,
-      "noteType": 1,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 44218.75,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 2,
-      "verticalPosition": 3
-    },
-    {
-      "startTiming": 44531.25,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 45442.511977154994,
-      "endTiming": 46331.116991776755,
-      "noteType": 1,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 46723.761977154994,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 2,
-      "verticalPosition": 3
-    },
-    {
-      "startTiming": 47036.261977154994,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 47987.47247290143,
-      "endTiming": 48832.30748290577,
-      "noteType": 1,
-      "buttonType": 4,
-      "verticalPosition": 1
-    },
-    {
-      "startTiming": 49268.72247290143,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 49581.22247290143,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 50474.40455343542,
-      "endTiming": 51375.0,
-      "noteType": 1,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 51755.65455343542,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 52068.15455343542,
+      "startTiming": 10707.230202036928,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 4,
       "verticalPosition": 1
     },
     {
-      "startTiming": 53068.15455343542,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 54031.374434249155,
+      "startTiming": 11113.480202036928,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 2,
       "verticalPosition": 3
     },
     {
-      "startTiming": 54349.40455343542,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 4,
-      "verticalPosition": 1
-    },
-    {
-      "startTiming": 54661.90455343542,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 55661.90455343542,
-      "endTiming": 56500.0,
+      "startTiming": 12665.89186434273,
+      "endTiming": 13574.21157522933,
       "noteType": 1,
-      "buttonType": 2,
-      "verticalPosition": 3
+      "buttonType": 3,
+      "verticalPosition": 2
     },
     {
-      "startTiming": 56818.03011918626,
+      "startTiming": 14874.553526648519,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 15238.480202036932,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 3,
       "verticalPosition": 2
     },
     {
-      "startTiming": 57130.53011918626,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 2,
-      "verticalPosition": 3
-    },
-    {
-      "startTiming": 57468.75,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 2,
-      "verticalPosition": 3
-    },
-    {
-      "startTiming": 57786.78011918626,
+      "startTiming": 15832.230202036932,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 1,
       "verticalPosition": 0
     },
     {
-      "startTiming": 58099.28011918626,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 2,
-      "verticalPosition": 3
-    },
-    {
-      "startTiming": 58437.5,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 58755.53011918626,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 2,
-      "verticalPosition": 3
-    },
-    {
-      "startTiming": 59068.03011918626,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 60610.587062118524,
-      "endTiming": 61573.806942932264,
-      "noteType": 1,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 61891.837062118524,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 4,
-      "verticalPosition": 1
-    },
-    {
-      "startTiming": 62204.337062118524,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 2,
-      "verticalPosition": 3
-    },
-    {
-      "startTiming": 63141.837062118524,
-      "endTiming": 64105.056942932264,
-      "noteType": 1,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 64423.087062118524,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 64735.587062118524,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 2,
-      "verticalPosition": 3
-    },
-    {
-      "startTiming": 65646.84903927353,
-      "endTiming": 66535.45405389529,
+      "startTiming": 16175.980202036932,
+      "endTiming": 17082.23020203693,
       "noteType": 1,
       "buttonType": 4,
       "verticalPosition": 1
     },
     {
-      "startTiming": 66928.09903927353,
+      "startTiming": 17707.230202036935,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 4,
       "verticalPosition": 1
     },
     {
-      "startTiming": 67240.59903927353,
+      "startTiming": 18019.730202036935,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 18363.480202036935,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 18738.480202036935,
+      "endTiming": 19582.230202036935,
+      "noteType": 1,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 20262.84303840421,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 1,
       "verticalPosition": 0
     },
     {
-      "startTiming": 68191.80953501996,
-      "endTiming": 69036.6445450243,
+      "startTiming": 22769.670575582462,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 2,
+      "verticalPosition": 3
+    },
+    {
+      "startTiming": 23386.42973155491,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 24008.162751688415,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 2,
+      "verticalPosition": 3
+    },
+    {
+      "startTiming": 24707.230202036935,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 25332.230202036935,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 25948.98935800938,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 26570.7223781429,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 27207.230202036935,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 27816.484744346137,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 28433.24390031857,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 2,
+      "verticalPosition": 3
+    },
+    {
+      "startTiming": 29054.976920452114,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 2,
+      "verticalPosition": 3
+    },
+    {
+      "startTiming": 29691.48474434613,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 30332.230202036928,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 30948.98935800936,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 31570.722378142906,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 32207.23020203693,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 32874.78437319275,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 33491.54352916518,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 2,
+      "verticalPosition": 3
+    },
+    {
+      "startTiming": 34113.276549298724,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 34749.78437319275,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 35382.28478490394,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 35999.04394087637,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 36620.77696100991,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 37257.28478490394,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 37957.23020203693,
+      "endTiming": 38832.230202036946,
+      "noteType": 1,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 40408.64579314738,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 40707.23020203693,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 2,
+      "verticalPosition": 3
+    },
+    {
+      "startTiming": 41019.73020203693,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 2,
+      "verticalPosition": 3
+    },
+    {
+      "startTiming": 41332.23020203693,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 41957.23020203693,
+      "endTiming": 42988.48020203693,
       "noteType": 1,
       "buttonType": 2,
       "verticalPosition": 3
     },
     {
-      "startTiming": 69473.05953501996,
+      "startTiming": 43951.70008285067,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 2,
       "verticalPosition": 3
     },
     {
-      "startTiming": 69785.55953501996,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 2,
-      "verticalPosition": 3
-    },
-    {
-      "startTiming": 70679.6875,
+      "startTiming": 44269.73020203693,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 3,
       "verticalPosition": 2
     },
     {
-      "startTiming": 71031.25,
+      "startTiming": 44582.23020203693,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 45519.73020203693,
+      "endTiming": 46482.95008285067,
+      "noteType": 1,
+      "buttonType": 2,
+      "verticalPosition": 3
+    },
+    {
+      "startTiming": 46800.98020203693,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 47113.48020203693,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 48024.742179191926,
+      "endTiming": 48913.347193813686,
+      "noteType": 1,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 49305.992179191926,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 49618.492179191926,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 2,
       "verticalPosition": 3
     },
     {
-      "startTiming": 71343.75,
+      "startTiming": 50569.702674938366,
+      "endTiming": 51414.537684942705,
+      "noteType": 1,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 51850.952674938366,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 2,
       "verticalPosition": 3
     },
     {
-      "startTiming": 71641.96149636769,
+      "startTiming": 52163.452674938366,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 4,
       "verticalPosition": 1
     },
     {
-      "startTiming": 71959.99161555394,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 2,
-      "verticalPosition": 3
+      "startTiming": 53056.634755472354,
+      "endTiming": 53957.23020203693,
+      "noteType": 1,
+      "buttonType": 1,
+      "verticalPosition": 0
     },
     {
-      "startTiming": 72272.49161555394,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 2,
-      "verticalPosition": 3
-    },
-    {
-      "startTiming": 73272.49161555394,
+      "startTiming": 54337.884755472354,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 4,
       "verticalPosition": 1
     },
     {
-      "startTiming": 73624.05411555394,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 73936.55411555394,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 74235.71149636769,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 2,
-      "verticalPosition": 3
-    },
-    {
-      "startTiming": 74553.74161555394,
+      "startTiming": 54650.384755472354,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 1,
       "verticalPosition": 0
     },
     {
-      "startTiming": 74866.24161555394,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 75177.10467528897,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 2,
-      "verticalPosition": 3
-    },
-    {
-      "startTiming": 75500.0,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 75795.2572709083,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 76146.8197709083,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 1,
-      "verticalPosition": 0
-    },
-    {
-      "startTiming": 76459.3197709083,
+      "startTiming": 55650.384755472354,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 4,
       "verticalPosition": 1
     },
     {
-      "startTiming": 76750.0,
-      "endTiming": 0,
-      "noteType": 0,
-      "buttonType": 3,
-      "verticalPosition": 2
-    },
-    {
-      "startTiming": 77068.03011918627,
+      "startTiming": 56613.604636286094,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 1,
       "verticalPosition": 0
     },
     {
-      "startTiming": 77380.53011918627,
+      "startTiming": 56931.634755472354,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 3,
       "verticalPosition": 2
     },
     {
-      "startTiming": 78313.34332356232,
+      "startTiming": 57244.134755472354,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 58244.134755472354,
+      "endTiming": 59082.23020203693,
+      "noteType": 1,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 59400.26032122319,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 1,
       "verticalPosition": 0
     },
     {
-      "startTiming": 78948.45051177336,
+      "startTiming": 59712.76032122319,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 3,
       "verticalPosition": 2
     },
     {
-      "startTiming": 79313.34332356232,
+      "startTiming": 60050.98020203693,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 60369.01032122319,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 60681.51032122319,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 61019.73020203693,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 61337.76032122319,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 61650.26032122319,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 63192.817264155456,
+      "endTiming": 64156.03714496919,
+      "noteType": 1,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 64474.06726415545,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 64786.56726415545,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 65724.06726415546,
+      "endTiming": 66687.28714496919,
+      "noteType": 1,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 67005.31726415546,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 67317.81726415546,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 68229.07924131045,
+      "endTiming": 69117.68425593221,
+      "noteType": 1,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 69510.32924131045,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 69822.82924131045,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 70774.03973705688,
+      "endTiming": 71618.87474706123,
+      "noteType": 1,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 72055.28973705688,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 2,
       "verticalPosition": 3
     },
     {
-      "startTiming": 79948.45051177336,
+      "startTiming": 72367.78973705688,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 2,
+      "verticalPosition": 3
+    },
+    {
+      "startTiming": 73261.91770203692,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 2,
+      "verticalPosition": 3
+    },
+    {
+      "startTiming": 73613.48020203692,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 73925.98020203692,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 2,
+      "verticalPosition": 3
+    },
+    {
+      "startTiming": 74224.19169840461,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 74542.22181759088,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 74854.72181759088,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 75854.72181759088,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 2,
+      "verticalPosition": 3
+    },
+    {
+      "startTiming": 76206.28431759088,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 76518.78431759088,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 76817.94169840461,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 77135.97181759088,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 77448.47181759088,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 77759.33487732589,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 3,
       "verticalPosition": 2
     },
     {
-      "startTiming": 80218.75,
+      "startTiming": 78082.23020203692,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 78377.48747294523,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 78729.04997294523,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 79041.54997294523,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 1,
+      "verticalPosition": 0
+    },
+    {
+      "startTiming": 79332.23020203692,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 79650.26032122319,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 2,
+      "verticalPosition": 3
+    },
+    {
+      "startTiming": 79962.76032122319,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 3,
+      "verticalPosition": 2
+    },
+    {
+      "startTiming": 80895.57352559925,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 2,
+      "verticalPosition": 3
+    },
+    {
+      "startTiming": 81530.68071381029,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 81895.57352559925,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 4,
+      "verticalPosition": 1
+    },
+    {
+      "startTiming": 82530.68071381029,
+      "endTiming": 0,
+      "noteType": 0,
+      "buttonType": 2,
+      "verticalPosition": 3
+    },
+    {
+      "startTiming": 82800.98020203692,
       "endTiming": 0,
       "noteType": 0,
       "buttonType": 1,

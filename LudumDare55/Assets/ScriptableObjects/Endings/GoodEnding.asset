@@ -16,10 +16,10 @@ MonoBehaviour:
   endingSprite: {fileID: 21300000, guid: b2ece1e73cdd95d7cb1eea525bc16e05, type: 3}
   endingMusic:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  endingText: congratulations
+      Data1: 358586764
+      Data2: 1330246947
+      Data3: 858482072
+      Data4: 557835791
+    Path: event:/Music/GoodEndingTheme
+  endingText: thank you.. you saved our pond
   endingSprite2: {fileID: 0}

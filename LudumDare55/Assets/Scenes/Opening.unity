@@ -237,7 +237,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: ohdkhgjnhgjogfd
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9631acca3a8629439424a74e7cd0524, type: 2}
   m_sharedMaterial: {fileID: -5592507110040582937, guid: f9631acca3a8629439424a74e7cd0524, type: 2}
@@ -264,8 +264,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -531,11 +531,11 @@ MonoBehaviour:
   openingImage: {fileID: 1691649522}
   openingAudio:
     Guid:
-      Data1: -1804022419
-      Data2: 1320693327
-      Data3: 965836988
-      Data4: -632827494
-    Path: event:/Music/TESTMUSIC
+      Data1: 1144419734
+      Data2: 1136068828
+      Data3: 1480629668
+      Data4: 172510450
+    Path: event:/Music/TheVoiceoverExtended
   firstSong: {fileID: 11400000, guid: f741c2ee012a1fe468536092ff7a75b3, type: 2}
   subtitle: {fileID: 11400000, guid: e0015a4782bdbc14fa10ce95e8a4feb0, type: 2}
   subtitleText: {fileID: 234692920}
