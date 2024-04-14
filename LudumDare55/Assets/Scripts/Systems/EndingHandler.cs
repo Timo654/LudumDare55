@@ -53,7 +53,10 @@ public class EndingHandler : MonoBehaviour
     }
     IEnumerator Ending()
     {
-        yield return new WaitForSecondsRealtime(5f);
+        while (AudioManager.IsPlaying() == true)
+        {
+            yield return null;
+        }
         running = false;
         LevelChanger.Instance.FadeToLevel("Credits");
     }

@@ -388,7 +388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1605}
+  m_AnchoredPosition: {x: 0, y: -2092}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &853111946
@@ -583,10 +583,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Programming   Timo Jairus\n                                Andreas Lillipuu\n\n\n\n\n\nSound  
-    Timur Nizamov\n\n\n\n\n\n\nArt    Ellis Donnik\n         Jane Jairus\n                 
-    Regina Grozdova\n\n\n\nAudio Engine: FMOD Studio\n by Firelight Technologies
-    Pty Ltd.\n\n\n\n\nThank you for playing!"
+  m_text: "Programming   Timo Jairus\n                            Andreas Lillipuu\n\n\n\n\n\nSound  
+    Timur Nizamov\n\n\n\n\n\n\nArt    Ellis Donnik\n         Jane Jairus\n              
+    Regina Grozdova\n\n\n\nPlaytesting    jason098\n                         metman98uk\n                       
+    GarnetSunset\n\n\n\n\nAudio Engine: FMOD Studio\n by Firelight Technologies Pty
+    Ltd.\n\n\n\n\n\n\n\n\nThank you for playing!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 07ee0d486bde419449261c8340298966, type: 2}
   m_sharedMaterial: {fileID: 5942110929737964715, guid: 07ee0d486bde419449261c8340298966, type: 2}

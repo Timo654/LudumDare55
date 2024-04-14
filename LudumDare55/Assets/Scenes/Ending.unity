@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b5c5b508873f640ac2124680d15bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugEndingData: {fileID: 11400000, guid: dde92a157e80ca54ea43a9c252d5e5e8, type: 2}
+  debugEndingData: {fileID: 11400000, guid: 1b431b5ac2dbc384bab31af186e60fe3, type: 2}
 --- !u!1 &1454081194
 GameObject:
   m_ObjectHideFlags: 0
