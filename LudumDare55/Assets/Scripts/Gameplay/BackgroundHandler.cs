@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using UnityEngine;
 
 public class BackgroundHandler : MonoBehaviour
@@ -12,14 +13,14 @@ public class BackgroundHandler : MonoBehaviour
     {
         RhythmManager.OnGetScore += HandleScore;
         RhythmManager.OnGetMaxScore += SetMaxScore;
-        RhythmManager.OnChartLoaded += SetLevelId;
+        RhythmManager.OnSongLoad += SetLevelId;
     }
 
     private void OnDisable()
     {
         RhythmManager.OnGetMaxScore -= SetMaxScore;
         RhythmManager.OnGetScore -= HandleScore;
-        RhythmManager.OnChartLoaded -= SetLevelId;
+        RhythmManager.OnSongLoad -= SetLevelId;
     }
     private void HandleScore(int score)
     {

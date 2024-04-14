@@ -21,6 +21,7 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] private GameObject longNoteLinePrefab;
     [SerializeField] private Image timerFillImage;
     [SerializeField] private EndingData[] endings;
+    [SerializeField] private ChartLoader chartLoader;
     [Header("Runtime stuff")]
     private bool fadeinFinished = false;
     private bool gameStarted = false;
@@ -38,12 +39,13 @@ public class RhythmManager : MonoBehaviour
     public static event Action OnMiss;
     public static event Action<int> OnGetMaxScore; // name might be misleading, this is when the game figures out what max score is.
     public static event Action<int> OnGetScore;
-    public static event Action<int> OnChartLoaded;
+    public static event Action<int> OnSongLoad;
     private int maxScore;
     private EventInstance missSound;
     // Start is called before the first frame update
     void Awake()
     {
+        OnSongLoad?.Invoke(songData.levelId);
         missSound = AudioManager.Instance.CreateInstance(FMODEvents.Instance.WrongSound);
         movementSpeed = ((1080.0f + hitter.localPosition.x) / songData.displayDuration) * 2;
         if (SaveManager.Instance.runtimeData.currentSong != null)
@@ -51,21 +53,25 @@ public class RhythmManager : MonoBehaviour
             songData = SaveManager.Instance.runtimeData.currentSong;
             SaveManager.Instance.runtimeData.currentSong = null;
         }
-
-        songData.chart = ChartLoader.LoadChart(songData.chartFile, SaveManager.Instance.gameData.difficulty);
-        OnChartLoaded?.Invoke(songData.levelId);
-        CreateButtons(songData.chart.notes);
         timerFillImage.fillAmount = 0f;
-        OnGetMaxScore?.Invoke(maxScore);
-        Debug.Log($"Max score is {maxScore}");
         if (songData.levelId == 1)
         {
             tutorialText.text = "Good... \nWe must repeat this once more to summon Them...";
         }
+        
     }
 
     private void Start()
     {
+        chartLoader.LoadChart(songData.chartFile, SaveManager.Instance.gameData.difficulty);
+    }
+    private void ChartLoaded(Chart loadedChart)
+    {
+        songData.chart = loadedChart;
+       CreateButtons(songData.chart.notes);
+        OnGetMaxScore?.Invoke(maxScore);
+        Debug.Log($"Max score is {maxScore}");
+
         AudioManager.Instance.InitializeMusic(songData.music);
         LevelChanger.Instance.FadeIn();
     }
@@ -81,6 +87,7 @@ public class RhythmManager : MonoBehaviour
     {
         OnHit += HandleHit;
         OnMiss += HandleMiss;
+        ChartLoader.OnChartLoaded += ChartLoaded;
         LevelChanger.OnFadeInFinished += HandleStart;
         GameplayInputHandler.RhythmButtonPressed += OnInputPressed;
         GameplayInputHandler.RhythmButtonReleased += OnInputReleased;
@@ -90,6 +97,7 @@ public class RhythmManager : MonoBehaviour
     {
         OnHit -= HandleHit;
         OnMiss -= HandleMiss;
+        ChartLoader.OnChartLoaded -= ChartLoaded;
         LevelChanger.OnFadeInFinished -= HandleStart;
         GameplayInputHandler.RhythmButtonPressed -= OnInputPressed;
         GameplayInputHandler.RhythmButtonReleased -= OnInputReleased;
