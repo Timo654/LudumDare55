@@ -360,9 +360,16 @@ public class RhythmManager : MonoBehaviour
             case NoteType.Hold:
                 if ((timeUntilNote <= songData.goodRange) && pressedButton) // start hold
                 {
-                    if (currentPress == noteData.buttonType && !holdStarted) holdStarted = true;
+                    if (currentPress == noteData.buttonType && !holdStarted)
+                    {
+                        noteData.OnHoldStart();
+                        noteData.endNote.GetComponent<ButtonScript>().OnHoldStart();
+                        holdStarted = true;
+                    }
                     else
                     {
+                        noteData.OnHoldEnd();
+                        noteData.endNote.GetComponent<ButtonScript>().OnHoldEnd();
                         var hitGrade = VerifyHold(noteData.noteLength);
                         if (hitGrade != HitGrade.Bad) OnHit?.Invoke(noteData.noteType, hitGrade, noteData.buttonType);
                         else OnMiss?.Invoke();

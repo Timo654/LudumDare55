@@ -47,6 +47,17 @@ public class ButtonScript : MonoBehaviour
 
     }
 
+    public void OnHoldStart()
+    {
+        // TODO - maybe add some particles too, could attach them to line or something, have fire come out
+        buttonSprite.transform.DOScale(Vector3.one * 0.7f, 1f).SetEase(bounceCurve);
+    }
+
+    public void OnHoldEnd()
+    {
+        buttonSprite.transform.DOScale(Vector3.one, 1f).SetEase(bounceCurve);
+    }
+
     public void DestroyNote(HitGrade grade)
     {
         if (endNote != null)

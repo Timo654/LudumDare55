@@ -115,6 +115,7 @@ public class SystemData
 public class GameData
 {
     public int previousScore = 0;
+    public float inputOffset = 0f;
 }
 
 [Serializable]
