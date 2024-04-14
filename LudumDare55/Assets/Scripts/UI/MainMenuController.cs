@@ -74,6 +74,7 @@ public class MainMenuController : MonoBehaviour
     {
         difficultyPanelCG.DOFade(1f, 1f);
         difficultyPanelCG.blocksRaycasts = true;
+        menuButtonsCG.interactable = false;
         EventSystem.current.SetSelectedGameObject(easyButton);
     }
 
@@ -81,6 +82,7 @@ public class MainMenuController : MonoBehaviour
     {
         difficultyPanelCG.DOFade(0f, 1f);
         difficultyPanelCG.blocksRaycasts = false;
+        menuButtonsCG.interactable = true;
         EventSystem.current.SetSelectedGameObject(playButton);
     }
     public void OnOptionsPressed()
