@@ -1956,6 +1956,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.6683009
       objectReference: {fileID: 0}
+    - target: {fileID: 2634963414037098421, guid: 3fb04a3764a7db9478906028bc67fa32, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435508084403850024, guid: 3fb04a3764a7db9478906028bc67fa32, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8919556743294413816, guid: 3fb04a3764a7db9478906028bc67fa32, type: 3}
       propertyPath: m_Name
       value: Background

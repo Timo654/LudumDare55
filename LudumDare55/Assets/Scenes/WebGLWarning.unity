@@ -745,7 +745,7 @@ MonoBehaviour:
     your understanding.
 
 
-    Press to continue.'
+    Press any key to continue.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9631acca3a8629439424a74e7cd0524, type: 2}
   m_sharedMaterial: {fileID: -5592507110040582937, guid: f9631acca3a8629439424a74e7cd0524, type: 2}
