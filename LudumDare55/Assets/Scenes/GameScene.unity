@@ -1181,9 +1181,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 647317383988156021, guid: 2352472e21a5d704888f473c36618a7b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 785084459}
+    - target: {fileID: 647317383988156021, guid: 2352472e21a5d704888f473c36618a7b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 775153513}
+    - target: {fileID: 647317383988156021, guid: 2352472e21a5d704888f473c36618a7b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackButtonPressed
+      objectReference: {fileID: 0}
     - target: {fileID: 647317383988156021, guid: 2352472e21a5d704888f473c36618a7b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: HandleOptions
@@ -1482,6 +1490,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 647317383910263750, guid: 2352472e21a5d704888f473c36618a7b, type: 3}
   m_PrefabInstance: {fileID: 785084455}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &785084459 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 647317383988156017, guid: 2352472e21a5d704888f473c36618a7b, type: 3}
+  m_PrefabInstance: {fileID: 785084455}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9287ccebb4c01c42b75136921efb887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &790373416
 GameObject:
   m_ObjectHideFlags: 0

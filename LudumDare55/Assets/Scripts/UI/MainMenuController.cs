@@ -27,7 +27,7 @@ public class MainMenuController : MonoBehaviour
         playerControls = new PlayerControls();
         backAction = playerControls.UI.Back;
         menuButtonsCG = menuButtons.AddComponent<CanvasGroup>();
-        optionsMenuCG = optionsMenu.AddComponent<CanvasGroup>();
+        optionsMenuCG = optionsMenu.GetComponent<CanvasGroup>();
         difficultyPanelCG = difficultyPanel.GetComponent<CanvasGroup>();
         lastSelect = EventSystem.current.firstSelectedGameObject;
     }
@@ -74,6 +74,7 @@ public class MainMenuController : MonoBehaviour
     {
         difficultyPanelCG.DOFade(1f, 1f);
         difficultyPanelCG.blocksRaycasts = true;
+        difficultyPanelCG.interactable = true;
         menuButtonsCG.interactable = false;
         EventSystem.current.SetSelectedGameObject(easyButton);
     }
@@ -82,13 +83,16 @@ public class MainMenuController : MonoBehaviour
     {
         difficultyPanelCG.DOFade(0f, 1f);
         difficultyPanelCG.blocksRaycasts = false;
+        difficultyPanelCG.interactable = false;
         menuButtonsCG.interactable = true;
         EventSystem.current.SetSelectedGameObject(playButton);
     }
     public void OnOptionsPressed()
     {
-        if (optionsMenu.activeSelf) return;
-        UIFader.FadeObjects(optionsMenu, optionsMenuCG, menuButtons, menuButtonsCG);
+        optionsMenuCG.DOFade(1f, 1f);
+        optionsMenuCG.blocksRaycasts = true;
+        optionsMenuCG.interactable = true;
+        menuButtonsCG.interactable = false;
         EventSystem.current.SetSelectedGameObject(optionsBackButton.gameObject);
     }
 
@@ -113,8 +117,10 @@ public class MainMenuController : MonoBehaviour
 
     public void OnLeaveOptions()
     {
-        if (!optionsMenu.activeSelf) return;
-        UIFader.FadeObjects(menuButtons, menuButtonsCG, optionsMenu, optionsMenuCG);
+        optionsMenuCG.DOFade(0f, 1f);
+        optionsMenuCG.blocksRaycasts = false;
+        optionsMenuCG.interactable = false;
+        menuButtonsCG.interactable = true;
         EventSystem.current.SetSelectedGameObject(optionsButton);
     }
 
