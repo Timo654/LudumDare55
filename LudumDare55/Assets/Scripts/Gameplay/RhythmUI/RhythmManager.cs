@@ -58,11 +58,11 @@ public class RhythmManager : MonoBehaviour
     public static event Action<int, int, float, int> OnSongEnd;
     private int maxScore;
     private EventInstance missSound;
-    private float audioOffsetMs;
+    private int audioOffsetMs;
     // Start is called before the first frame update
     void Awake()
     {
-        audioOffsetMs = SaveManager.Instance.gameData.audioOffsetMs;
+        audioOffsetMs = SaveManager.Instance.gameData.audioOffsetMilliseconds;
         fluteFrogAnim = fluteFrog.GetComponent<Animator>();
         fluteFrogSprite = fluteFrog.GetComponent<Image>();
         missSound = AudioManager.Instance.CreateInstance(FMODEvents.Instance.WrongSound);
@@ -433,7 +433,7 @@ public class RhythmManager : MonoBehaviour
                 finished = true;
             }
         }
-
+        Debug.Log(audioOffsetMs);
         if (visualScore != score)
         {
             visualScore = Mathf.MoveTowards(visualScore, score, scoreCounterSpeed * Time.deltaTime);

@@ -116,7 +116,7 @@ public class SystemData
 public class GameData
 {
     public int previousScore = 0;
-    public float audioOffsetMs = 0f; // milliseconds
+    public int audioOffsetMilliseconds = 0; // milliseconds, from -150 to 150
     public Difficulty difficulty = Difficulty.Easy;
 }
 
