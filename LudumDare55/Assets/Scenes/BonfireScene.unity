@@ -357,6 +357,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 9208969956938797175, guid: 3fb04a3764a7db9478906028bc67fa32, type: 3}
+      propertyPath: isGameScene
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

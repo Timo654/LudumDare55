@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BackgroundHandler : MonoBehaviour
 {
+    [SerializeField] private bool isGameScene = true; // set this to false to stop frogs from despawning
     private int maxScore;
     private int currentScore;
     public GameObject[] frogObjects;
@@ -17,6 +18,7 @@ public class BackgroundHandler : MonoBehaviour
     [SerializeField] private SpriteRenderer tiktaalik;
     private void Start()
     {
+        if (!isGameScene) return;
         frogHandler("despawn");
         bgHandler("despawn");
     }
@@ -121,7 +123,10 @@ public class BackgroundHandler : MonoBehaviour
     }
     private void HandleScore(int score)
     {
-        currentFade = currentScore / (maxScore * 0.6f);
+        if (maxScore == 0) return; // shouldn't be possible, but better safe than sorry
+        currentScore = score;
+
+        currentFade = currentScore / (maxScore * 0.75f);
         //Score for triggerable events 
         float roundedFade = (float)Math.Floor(currentFade * 10) / 10;
         if (roundedFade > fadeTarget)
@@ -129,14 +134,10 @@ public class BackgroundHandler : MonoBehaviour
             fadeTarget = roundedFade;
             eventHandler();
         }
-        if (maxScore == 0) return; // shouldn't be possible, but better safe than sorry
-        currentScore = score;
-        // TODO - add all the score related behaviour here. should divide score by maxscore and then add elements based on that
-        // or divide it before and have subscores to check for idk, handle it somehow eventually to adds backgrounds and frogs
+
         if (levelId == 1) // level 2
         {
-            tiktaalik.DOKill(); // l�petame hetkel k�ivad tween animatsioonid
-            var currentFade = currentScore / (maxScore * 0.6f);
+            tiktaalik.DOKill(); // lõpetame hetkel käivad tween animatsioonid
             tiktaalik.DOFade(currentFade, 0.5f);
         }
     }
