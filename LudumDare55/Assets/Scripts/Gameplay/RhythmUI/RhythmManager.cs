@@ -70,7 +70,6 @@ public class RhythmManager : MonoBehaviour
             songData = debugSongData;
         }
         movementSpeed = ((1080.0f + hitter.localPosition.x) / songData.displayDuration) * 2;
-        OnSongLoad?.Invoke(songData.levelId);
         timerFillImage.fillAmount = 0f;
         tutorialBG.gameObject.SetActive(true);
         if (songData.levelId == 1)
@@ -82,6 +81,7 @@ public class RhythmManager : MonoBehaviour
 
     private void Start()
     {
+        OnSongLoad?.Invoke(songData.levelId);
         chartLoader.LoadChart(songData.chartFile, SaveManager.Instance.gameData.difficulty);
     }
     private void ChartLoaded(Chart loadedChart)
