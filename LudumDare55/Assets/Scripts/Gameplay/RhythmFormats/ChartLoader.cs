@@ -11,17 +11,14 @@ public class ChartLoader : MonoBehaviour
     public void LoadChart(string filename, Difficulty difficulty)
     {
         string json;
-        Debug.Log("hello file load");
         filename = $"{filename}_{difficulty}.json".ToLower();
         if (BuildConstants.isWebGL)
         {
-            Debug.Log("hello webgl load");
             string fullPath = $"{Application.streamingAssetsPath}/{filename}";
             StartCoroutine(GetRequest(fullPath));
         }
         else
         {
-            Debug.Log("hello pc load");
             string fullPath = Path.Combine(Application.streamingAssetsPath, filename);
             json = File.ReadAllText(fullPath);
             OnChartLoaded?.Invoke(JsonConvert.DeserializeObject<Chart>(json));
@@ -30,8 +27,6 @@ public class ChartLoader : MonoBehaviour
 
     IEnumerator GetRequest(string uri)
     {
-        Debug.Log("hello debug web request");
-        Debug.Log(uri);
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
             // Request and wait for the desired page.
@@ -50,7 +45,6 @@ public class ChartLoader : MonoBehaviour
                     Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
                     break;
                 case UnityWebRequest.Result.Success:
-                    Debug.Log(pages[page] + ":\nReceived data");
                     OnChartLoaded?.Invoke(JsonConvert.DeserializeObject<Chart>(webRequest.downloadHandler.text));
                     break;
             }

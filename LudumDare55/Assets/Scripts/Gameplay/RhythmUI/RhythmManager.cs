@@ -191,6 +191,10 @@ public class RhythmManager : MonoBehaviour
         }
         OnGetScore?.Invoke(score);
         combo += 1;
+        if (combo > 20)
+        {
+            score += 5;
+        }
         ResetHitData();
         DestroyNote(grade);
         UpdateStats();
@@ -236,6 +240,7 @@ public class RhythmManager : MonoBehaviour
             }
             notes.Add(noteObject); // for the list we'll use during gameplay
         }
+        maxScore += (notes.Count - 20) * 5; // combo
     }
     private GameObject CreateButton(Note note, bool isEnd = false)
     {
