@@ -13,9 +13,8 @@ public class PauseMenuController : MonoBehaviour
     [SerializeField] private Button settingsBackButton;
     [SerializeField] private GameObject firstSelectedUIElement;
     [SerializeField] private GameObject touchUI;
-    private PlayerControls playerControls;
-    private InputAction pauseAction;
-    private InputAction backAction;
+    private bool pauseSubscribed = true;
+
     private CanvasGroup optionsMenuCG;
     private CanvasGroup pauseMenuCG;
     private CanvasGroup pauseButtonsCG;
@@ -23,7 +22,6 @@ public class PauseMenuController : MonoBehaviour
     private GameObject lastSelect;
     private bool canPause;
     private bool isPaused;
-    private bool pauseSubscribed = true;
 
     private void Awake()
     {
@@ -32,9 +30,6 @@ public class PauseMenuController : MonoBehaviour
         optionsMenuCG = optionsMenu.AddComponent<CanvasGroup>();
         pauseMenuCG = pauseMenu.AddComponent<CanvasGroup>();
         pauseButtonsCG = pauseButtons.AddComponent<CanvasGroup>();
-        playerControls = new PlayerControls();
-        pauseAction = playerControls.UI.Pause;
-        backAction = playerControls.UI.Back;
         lastSelect = firstSelectedUIElement;
         if (touchUI != null)
         {
@@ -49,20 +44,6 @@ public class PauseMenuController : MonoBehaviour
         }
     }
 
-    public void OnEnable()
-    {
-        pauseAction.Enable();
-        GameplayInputHandler.pause += OnPauseButton;
-        LevelChanger.OnFadeInFinished += HandleFadeIn;
-    }
-
-    public void OnDisable()
-    {
-        GameplayInputHandler.pause -= OnPauseButton;
-        GameplayInputHandler.back -= OnPauseButton;
-        LevelChanger.OnFadeInFinished -= HandleFadeIn;
-    }
-
     private void OnApplicationFocus(bool focus)
     {
         if (!focus)
@@ -70,7 +51,24 @@ public class PauseMenuController : MonoBehaviour
             PauseGame();
         }
     }
-    void HandleFadeIn()
+
+    public void OnEnable()
+    {
+        GameplayInputHandler.pause += OnPauseButton;
+    }
+
+    public void OnDisable()
+    {
+        GameplayInputHandler.pause -= OnPauseButton;
+        GameplayInputHandler.back -= OnPauseButton;
+    }
+
+    void DisablePause()
+    {
+        canPause = false;
+    }
+
+    void EnablePause()
     {
         canPause = true;
     }
@@ -102,7 +100,6 @@ public class PauseMenuController : MonoBehaviour
 
     public void HandlePause()
     {
-        if (!canPause) return;
         if (optionsMenu != null && optionsMenu.activeSelf)
         {
             HandleOptions();
@@ -110,29 +107,6 @@ public class PauseMenuController : MonoBehaviour
         }
         if (isPaused) UnpauseGame();
         else PauseGame();
-    }
-
-    void PauseGame()
-    {
-        if (Time.timeScale < 1.0f) return;
-        GamePaused?.Invoke(true);
-        Time.timeScale = 0f;
-        UIFader.FadeCanvasGroup(pauseMenuCG);
-        EVRef.SetSelectedGameObject(firstSelectedUIElement);
-        AudioManager.Pause();
-        backAction.Enable();
-        isPaused = true;
-    }
-
-    void UnpauseGame()
-    {
-        SubscribeToPause();
-        Time.timeScale = 1f;
-        GamePaused?.Invoke(false);
-        pauseMenu.SetActive(false);
-        AudioManager.Unpause();
-        backAction.Disable();
-        isPaused = false;
     }
 
     private void SubscribeToBack()
@@ -150,15 +124,37 @@ public class PauseMenuController : MonoBehaviour
         GameplayInputHandler.pause += OnPauseButton;
         pauseSubscribed = true;
     }
+    void PauseGame()
+    {
+        if (Time.timeScale < 1.0f) return;
+        GamePaused?.Invoke(true);
+        Time.timeScale = 0f;
+        UIFader.FadeCanvasGroup(pauseMenuCG);
+        EVRef.SetSelectedGameObject(firstSelectedUIElement);
+        AudioManager.Pause();
+        isPaused = true;
+    }
+
+    void UnpauseGame()
+    {
+        SubscribeToPause();
+        Time.timeScale = 1f;
+        GamePaused?.Invoke(false);
+        pauseMenu.SetActive(false);
+        AudioManager.Unpause();
+        isPaused = false;
+    }
 
     public void HandleOptions()
     {
         if (optionsMenu.activeSelf)
         {
+            SubscribeToPause();
             UIFader.FadeObjects(pauseButtons, pauseButtonsCG, optionsMenu, optionsMenuCG);
         }
         else
         {
+            SubscribeToBack();
             UIFader.FadeObjects(optionsMenu, optionsMenuCG, pauseButtons, pauseButtonsCG);
         }
     }

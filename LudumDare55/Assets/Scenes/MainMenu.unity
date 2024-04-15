@@ -288,7 +288,6 @@ RectTransform:
   - {fileID: 1278325952}
   - {fileID: 1220284394}
   - {fileID: 323385820}
-  - {fileID: 662937118}
   m_Father: {fileID: 2058672766}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -429,7 +428,7 @@ MonoBehaviour:
   m_text: Select a difficulty
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9631acca3a8629439424a74e7cd0524, type: 2}
-  m_sharedMaterial: {fileID: -5592507110040582937, guid: f9631acca3a8629439424a74e7cd0524, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 091de448a0f9e964b96672536e6cab87, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -628,7 +627,7 @@ MonoBehaviour:
     players.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9631acca3a8629439424a74e7cd0524, type: 2}
-  m_sharedMaterial: {fileID: -5592507110040582937, guid: f9631acca3a8629439424a74e7cd0524, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 091de448a0f9e964b96672536e6cab87, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -688,7 +687,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 59.953674, y: 0, z: 15.640045, w: 0}
+  m_margin: {x: 58.131836, y: -0.44177246, z: 13.901001, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -866,7 +865,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1999042332}
-  m_Father: {fileID: 95957510}
+  m_Father: {fileID: 2058672766}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1481,6 +1480,7 @@ GameObject:
   - component: {fileID: 1220284397}
   - component: {fileID: 1220284399}
   - component: {fileID: 1220284398}
+  - component: {fileID: 1220284400}
   m_Layer: 5
   m_Name: Frogs
   m_TagString: Untagged
@@ -1638,6 +1638,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159ac538893f3d04d9a6ea752e14be6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1220284400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220284393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.38039216}
+  m_EffectDistance: {x: 6, y: 6}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &1268177166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1779,6 +1794,7 @@ GameObject:
   - component: {fileID: 1278325952}
   - component: {fileID: 1278325954}
   - component: {fileID: 1278325953}
+  - component: {fileID: 1278325955}
   m_Layer: 5
   m_Name: GameLogo
   m_TagString: Untagged
@@ -1843,6 +1859,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278325951}
   m_CullTransparentMesh: 1
+--- !u!114 &1278325955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278325951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.7372549}
+  m_EffectDistance: {x: 4, y: 4}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &1320075028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2761,6 +2792,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 95957510}
+  - {fileID: 662937118}
   - {fileID: 1350741040}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
