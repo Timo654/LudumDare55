@@ -72,7 +72,7 @@ public class MainMenuController : MonoBehaviour
 
     public void OnPlayPressed()
     {
-        difficultyPanelCG.DOFade(1f, 1f);
+        difficultyPanelCG.DOFade(1f, 0.5f);
         difficultyPanelCG.blocksRaycasts = true;
         difficultyPanelCG.interactable = true;
         menuButtonsCG.interactable = false;
@@ -81,7 +81,7 @@ public class MainMenuController : MonoBehaviour
 
     public void OnExitDifficulty()
     {
-        difficultyPanelCG.DOFade(0f, 1f);
+        difficultyPanelCG.DOFade(0f, 0.5f);
         difficultyPanelCG.blocksRaycasts = false;
         difficultyPanelCG.interactable = false;
         menuButtonsCG.interactable = true;
@@ -89,7 +89,7 @@ public class MainMenuController : MonoBehaviour
     }
     public void OnOptionsPressed()
     {
-        optionsMenuCG.DOFade(1f, 1f);
+        optionsMenuCG.DOFade(1f, 0.5f);
         optionsMenuCG.blocksRaycasts = true;
         optionsMenuCG.interactable = true;
         menuButtonsCG.interactable = false;
@@ -117,7 +117,7 @@ public class MainMenuController : MonoBehaviour
 
     public void OnLeaveOptions()
     {
-        optionsMenuCG.DOFade(0f, 1f);
+        optionsMenuCG.DOFade(0f, 0.5f);
         optionsMenuCG.blocksRaycasts = false;
         optionsMenuCG.interactable = false;
         menuButtonsCG.interactable = true;
