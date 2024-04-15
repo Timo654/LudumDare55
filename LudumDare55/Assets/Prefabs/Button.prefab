@@ -10029,6 +10029,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  note:
+    startTiming: 0
+    endTiming: 0
+    verticalPosition: 0
+    noteType: 0
+    buttonType: 0
   noteLength: 0
 --- !u!1 &6860096609822792725
 GameObject:
@@ -10095,7 +10101,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 89a9f86bbc306064babaecb4a322f52c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 65dc028ee9e0f5e489c65d6fcd883dc6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

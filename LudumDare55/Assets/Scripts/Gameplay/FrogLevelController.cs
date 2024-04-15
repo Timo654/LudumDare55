@@ -21,7 +21,7 @@ public class FrogLevelController : MonoBehaviour
     {
         AudioManager.Instance.StartMusic();
         LevelChanger.Instance.FadeIn();
-        tutorialBox.DOFade(0f, 0.25f).SetDelay(5f);
+        tutorialBox.DOFade(0f, 0.25f).SetDelay(8f);
         FrogLevelStart?.Invoke();
     }
 
