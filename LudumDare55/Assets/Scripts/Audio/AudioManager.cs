@@ -3,12 +3,16 @@ using FMODUnity;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
     [Header("Volume")]
+    [Range(0, 1)]
+
+    public float MasterVolume = 1;
     [Range(0, 1)]
 
     public float MusicVolume = 1;
@@ -20,8 +24,8 @@ public class AudioManager : MonoBehaviour
     public float UIVolume = 1;
     [Range(0, 1)]
 
+    private Bus masterBus;
     private Bus musicBus;
-
     private Bus sfxBus;
     private Bus reverbBus;
     private Bus uiBus;
@@ -80,9 +84,11 @@ public class AudioManager : MonoBehaviour
         _instance = instance;
         DontDestroyOnLoad(_instance.gameObject);
         _instance.eventInstances = new List<EventInstance>();
+        _instance.masterBus = RuntimeManager.GetBus("bus:/");
         _instance.musicBus = RuntimeManager.GetBus("bus:/Music");
         _instance.sfxBus = RuntimeManager.GetBus("bus:/SFX");
         _instance.uiBus = RuntimeManager.GetBus("bus:/UI");
+        _instance.MasterVolume = SaveManager.Instance.systemData.MasterVolume / 100f;
         _instance.SFXVolume = SaveManager.Instance.systemData.SFXVolume / 100f;
         _instance.MusicVolume = SaveManager.Instance.systemData.MusicVolume / 100f;
         _instance.UIVolume = SaveManager.Instance.systemData.UIVolume / 100f;
@@ -111,6 +117,7 @@ public class AudioManager : MonoBehaviour
         musicBus.setVolume(MusicVolume);
         sfxBus.setVolume(SFXVolume);
         uiBus.setVolume(UIVolume);
+        masterBus.setVolume(MasterVolume);
     }
 
     public static bool IsEventReferenceValid(EventReference eventReference)

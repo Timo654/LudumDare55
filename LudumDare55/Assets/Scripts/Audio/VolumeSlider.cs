@@ -8,6 +8,7 @@ public class VolumeSlider : MonoBehaviour
 
     private enum VolumeType
     {
+        MASTER,
         MUSIC,
         SFX,
         UI
@@ -38,6 +39,9 @@ public class VolumeSlider : MonoBehaviour
             case VolumeType.UI:
                 volumeSlider.value = audioManager.UIVolume * 100f;
                 break;
+            case VolumeType.MASTER:
+                volumeSlider.value = audioManager.MasterVolume * 100f;
+                break;
             default:
                 Debug.LogWarning("Volume Type not supported: " + volumeType);
                 break;
@@ -66,6 +70,10 @@ public class VolumeSlider : MonoBehaviour
                 SaveManager.Instance.systemData.UIVolume = volumeSlider.value;
                 audioManager.UIVolume = volumeSlider.value / 100f;
                 uiTestAudio.start();
+                break;
+            case VolumeType.MASTER:
+                SaveManager.Instance.systemData.MasterVolume = volumeSlider.value;
+                audioManager.MasterVolume = volumeSlider.value / 100f;
                 break;
             default:
                 Debug.LogWarning("Volume Type not supported: " + volumeType);

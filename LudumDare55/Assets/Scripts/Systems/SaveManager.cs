@@ -106,6 +106,7 @@ public class SaveManager : MonoBehaviour
 [Serializable]
 public class SystemData
 {
+    public float MasterVolume = 100f;
     public float SFXVolume = 50f;
     public float UIVolume = 40f;
     public float MusicVolume = 20f;
@@ -115,7 +116,7 @@ public class SystemData
 public class GameData
 {
     public int previousScore = 0;
-    public float inputOffset = 0f;
+    public float audioOffsetMs = 0f; // milliseconds
     public Difficulty difficulty = Difficulty.Easy;
 }
 

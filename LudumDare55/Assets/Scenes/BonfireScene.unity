@@ -632,6 +632,9 @@ MonoBehaviour:
   settingsBackButton: {fileID: 1140378691}
   firstSelectedUIElement: {fileID: 1830929713}
   touchUI: {fileID: 0}
+  completeScreen: {fileID: 0}
+  completeTitle: {fileID: 0}
+  completeDescription: {fileID: 0}
 --- !u!114 &942859574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1277,7 +1280,7 @@ PrefabInstance:
     - target: {fileID: 647317383988156021, guid: 2352472e21a5d704888f473c36618a7b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 942859573}
     - target: {fileID: 647317383988156021, guid: 2352472e21a5d704888f473c36618a7b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: BackButtonPressed

@@ -58,10 +58,11 @@ public class RhythmManager : MonoBehaviour
     public static event Action<int, int, float, int> OnSongEnd;
     private int maxScore;
     private EventInstance missSound;
-
+    private float audioOffsetMs;
     // Start is called before the first frame update
     void Awake()
     {
+        audioOffsetMs = SaveManager.Instance.gameData.audioOffsetMs;
         fluteFrogAnim = fluteFrog.GetComponent<Animator>();
         fluteFrogSprite = fluteFrog.GetComponent<Image>();
         missSound = AudioManager.Instance.CreateInstance(FMODEvents.Instance.WrongSound);
@@ -245,7 +246,7 @@ public class RhythmManager : MonoBehaviour
     {
         foreach (Note note in inputNotes)
         {
-            var noteObject = CreateButton(note);
+            var noteObject = CreateButton(note, false, audioOffsetMs);
             if (note.noteType == NoteType.Hold)
             {
                 var color = Color.white;
@@ -264,13 +265,13 @@ public class RhythmManager : MonoBehaviour
                         color = new Color(0.8627452f, 0.882353f, 0.8941177f, 1f);
                         break;
                 }
-                CreateEnd(note, noteObject, color);
+                CreateEnd(note, noteObject, color, audioOffsetMs);
             }
             notes.Add(noteObject); // for the list we'll use during gameplay
         }
         maxScore += (notes.Count - 20) * 5; // combo
     }
-    private GameObject CreateButton(Note note, bool isEnd = false)
+    private GameObject CreateButton(Note note, bool isEnd, float offset)
     {
         var noteObject = Instantiate(buttonPrefab);
         noteObject.transform.SetParent(buttonScroller, false);
@@ -280,20 +281,20 @@ public class RhythmManager : MonoBehaviour
         if (isEnd)
         {
             maxScore += 20;
-            requiredDistance += movementSpeed * (note.endTiming / 1000f);
+            requiredDistance += movementSpeed * ((note.endTiming + offset) / 1000f);
         }
         else
         {
             maxScore += 10;
-            requiredDistance += movementSpeed * (note.startTiming / 1000f);
+            requiredDistance += movementSpeed * ((note.startTiming + offset) / 1000f);
         }
 
         noteScript.InitializeNote(requiredDistance, yPosition, note);
         return noteObject;
     }
-    void CreateEnd(Note note, GameObject noteObject, Color color)
+    void CreateEnd(Note note, GameObject noteObject, Color color, float offset)
     {
-        var endNoteObject = CreateButton(note, true);
+        var endNoteObject = CreateButton(note, true, offset);
         var noteData = noteObject.GetComponent<ButtonScript>();
         noteData.endNote = endNoteObject;
         noteData.noteLength = (note.endTiming - note.startTiming) / 1000f;
@@ -435,18 +436,17 @@ public class RhythmManager : MonoBehaviour
 
         if (visualScore != score)
         {
-            Debug.Log($"not equal, {visualScore} and {score}");
             visualScore = Mathf.MoveTowards(visualScore, score, scoreCounterSpeed * Time.deltaTime);
             scoreText.text = $"Score: {Mathf.RoundToInt(visualScore)}";
         }
         int musicPos = UpdateTimerValue();
         if (notes.Count <= 0) return; // song is over
         var noteData = notes[0].GetComponent<ButtonScript>();
-        var timeUntilNote = noteData.note.startTiming - musicPos;
+        var timeUntilNote = noteData.note.startTiming - musicPos + audioOffsetMs;
         var timeUntilEndNote = 0f;
         if (noteData.note.noteType == NoteType.Hold)
         {
-            timeUntilEndNote = noteData.note.endTiming - musicPos;
+            timeUntilEndNote = noteData.note.endTiming - musicPos + audioOffsetMs;
         }
 
         float noteDiff = hitter.position.x - notes[0].transform.position.x;
