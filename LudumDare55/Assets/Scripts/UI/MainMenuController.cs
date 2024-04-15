@@ -124,6 +124,10 @@ public class MainMenuController : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(optionsButton);
     }
 
+    public void OnSecretFrogsPressed()
+    {
+        LevelChanger.Instance.FadeToLevel("BonfireScene");
+    }
     public void OnExitPressed()
     {
         menuButtonsCG.interactable = false;

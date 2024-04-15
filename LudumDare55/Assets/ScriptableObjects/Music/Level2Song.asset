@@ -750,7 +750,7 @@ MonoBehaviour:
       Data4: 1366777099
     Path: event:/Music/HardMainTheme
   musicLengthMs: 85200
-  displayDuration: 3
+  displayDuration: 2
   greatRange: 100
   goodRange: 200
   badRange: 500

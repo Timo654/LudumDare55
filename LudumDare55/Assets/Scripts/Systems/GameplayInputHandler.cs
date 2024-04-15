@@ -15,7 +15,7 @@ public class GameplayInputHandler : MonoBehaviour
 
     // BOOLS TO CHECK STUFF
     private bool isPaused = false;
-
+    private bool isFrogMode;
     private InputAction pauseAction;
     private InputAction backAction;
     private InputAction rhythmPadAction;

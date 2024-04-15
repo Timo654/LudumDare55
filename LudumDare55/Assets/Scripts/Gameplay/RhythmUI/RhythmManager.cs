@@ -3,7 +3,6 @@ using FMOD.Studio;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +10,7 @@ using UnityEngine.UI;
 public class RhythmManager : MonoBehaviour
 {
     [Header("Song data")]
-    [SerializeField] private SongData songData;
+    [SerializeField] private SongData debugSongData;
     [Header("General objects")]
     [SerializeField] private GameObject buttonPrefab;
     [SerializeField] private Transform buttonScroller;
@@ -30,9 +29,9 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] private Sprite sadFrog;
     [SerializeField] private Sprite defaultFrog;
     [Header("Runtime stuff")]
+    private SongData songData;
     private Image fluteFrogSprite;
     private Animator fluteFrogAnim;
-    private float lastEmoteTime;
     private bool fadeinFinished = false;
     private bool gameStarted = false;
     private bool musicStarted = false;
@@ -59,20 +58,25 @@ public class RhythmManager : MonoBehaviour
     {
         fluteFrogAnim = fluteFrog.GetComponent<Animator>();
         fluteFrogSprite = fluteFrog.GetComponent<Image>();
-        OnSongLoad?.Invoke(songData.levelId);
         missSound = AudioManager.Instance.CreateInstance(FMODEvents.Instance.WrongSound);
-        movementSpeed = ((1080.0f + hitter.localPosition.x) / songData.displayDuration) * 2;
         if (SaveManager.Instance.runtimeData.currentSong != null)
         {
             songData = SaveManager.Instance.runtimeData.currentSong;
             SaveManager.Instance.runtimeData.currentSong = null;
         }
+        else
+        {
+            Debug.LogWarning("No song data found, using debug one.");
+            songData = debugSongData;
+        }
+        movementSpeed = ((1080.0f + hitter.localPosition.x) / songData.displayDuration) * 2;
+        OnSongLoad?.Invoke(songData.levelId);
         timerFillImage.fillAmount = 0f;
         if (songData.levelId == 1)
         {
             tutorialText.text = "Good... \nWe must repeat this once more to summon Them...";
         }
-        
+
     }
 
     private void Start()
@@ -82,7 +86,7 @@ public class RhythmManager : MonoBehaviour
     private void ChartLoaded(Chart loadedChart)
     {
         songData.chart = loadedChart;
-       CreateButtons(songData.chart.notes);
+        CreateButtons(songData.chart.notes);
         OnGetMaxScore?.Invoke(maxScore);
         Debug.Log($"Max score is {maxScore}");
 
@@ -155,7 +159,7 @@ public class RhythmManager : MonoBehaviour
         ResetHitData();
         DestroyNote(HitGrade.Bad);
         UpdateStats();
-        
+
     }
 
     void HandleHit(NoteType note, HitGrade grade, ButtonType button)
@@ -207,7 +211,7 @@ public class RhythmManager : MonoBehaviour
                 case HitGrade.Bad:
                     fluteFrogSprite.sprite = sadFrog;
                     break;
-            } 
+            }
             prevEmoteGrade = newGrade;
         }
         yield return new WaitForSeconds(1f);
@@ -342,7 +346,7 @@ public class RhythmManager : MonoBehaviour
         if ((score / (float)maxScore) > scoreReq)
         {
             endingType = EndingType.Good;
-        } 
+        }
         else
         {
             endingType = EndingType.Bad;
@@ -365,8 +369,8 @@ public class RhythmManager : MonoBehaviour
             }
             LevelChanger.Instance.FadeToLevel("Ending");
         }
-        
-        
+
+
     }
 
     private int UpdateTimerValue()
@@ -388,8 +392,8 @@ public class RhythmManager : MonoBehaviour
                 finished = true;
             }
         }
-        
-        
+
+
         int musicPos = UpdateTimerValue();
         if (notes.Count <= 0) return; // song is over
         var noteData = notes[0].GetComponent<ButtonScript>();
@@ -404,7 +408,7 @@ public class RhythmManager : MonoBehaviour
         switch (noteData.noteType)
         {
             case NoteType.Regular:
-                
+
                 if (timeUntilNote < -songData.goodRange) OnMiss?.Invoke();
                 else if (timeUntilNote <= songData.goodRange && pressedButton)
                 {
