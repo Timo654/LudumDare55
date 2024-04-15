@@ -1,7 +1,8 @@
+using DG.Tweening;
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PauseMenuController : MonoBehaviour
@@ -13,17 +14,20 @@ public class PauseMenuController : MonoBehaviour
     [SerializeField] private Button settingsBackButton;
     [SerializeField] private GameObject firstSelectedUIElement;
     [SerializeField] private GameObject touchUI;
-    private PlayerControls playerControls;
-    private InputAction pauseAction;
-    private InputAction backAction;
+    [SerializeField] private CanvasGroup completeScreen;
+    [SerializeField] private TextMeshProUGUI completeTitle;
+    [SerializeField] private TextMeshProUGUI completeDescription;
+    [SerializeField] private GameObject continueButton;
+    private bool pauseSubscribed = true;
+
     private CanvasGroup optionsMenuCG;
     private CanvasGroup pauseMenuCG;
     private CanvasGroup pauseButtonsCG;
     private EventSystem EVRef;
     private GameObject lastSelect;
-    private bool canPause;
     private bool isPaused;
-    private bool pauseSubscribed = true;
+
+    public static event Action OnContinue;
 
     private void Awake()
     {
@@ -32,9 +36,6 @@ public class PauseMenuController : MonoBehaviour
         optionsMenuCG = optionsMenu.AddComponent<CanvasGroup>();
         pauseMenuCG = pauseMenu.AddComponent<CanvasGroup>();
         pauseButtonsCG = pauseButtons.AddComponent<CanvasGroup>();
-        playerControls = new PlayerControls();
-        pauseAction = playerControls.UI.Pause;
-        backAction = playerControls.UI.Back;
         lastSelect = firstSelectedUIElement;
         if (touchUI != null)
         {
@@ -49,20 +50,6 @@ public class PauseMenuController : MonoBehaviour
         }
     }
 
-    public void OnEnable()
-    {
-        pauseAction.Enable();
-        GameplayInputHandler.pause += OnPauseButton;
-        LevelChanger.OnFadeInFinished += HandleFadeIn;
-    }
-
-    public void OnDisable()
-    {
-        GameplayInputHandler.pause -= OnPauseButton;
-        GameplayInputHandler.back -= OnPauseButton;
-        LevelChanger.OnFadeInFinished -= HandleFadeIn;
-    }
-
     private void OnApplicationFocus(bool focus)
     {
         if (!focus)
@@ -70,9 +57,18 @@ public class PauseMenuController : MonoBehaviour
             PauseGame();
         }
     }
-    void HandleFadeIn()
+
+    public void OnEnable()
     {
-        canPause = true;
+        GameplayInputHandler.pause += OnPauseButton;
+        RhythmManager.OnSongEnd += HandleSongEnd;
+    }
+
+    public void OnDisable()
+    {
+        GameplayInputHandler.pause -= OnPauseButton;
+        GameplayInputHandler.back -= OnPauseButton;
+        RhythmManager.OnSongEnd -= HandleSongEnd;
     }
 
     private void Update()
@@ -102,7 +98,6 @@ public class PauseMenuController : MonoBehaviour
 
     public void HandlePause()
     {
-        if (!canPause) return;
         if (optionsMenu != null && optionsMenu.activeSelf)
         {
             HandleOptions();
@@ -110,29 +105,6 @@ public class PauseMenuController : MonoBehaviour
         }
         if (isPaused) UnpauseGame();
         else PauseGame();
-    }
-
-    void PauseGame()
-    {
-        if (Time.timeScale < 1.0f) return;
-        GamePaused?.Invoke(true);
-        Time.timeScale = 0f;
-        UIFader.FadeCanvasGroup(pauseMenuCG);
-        EVRef.SetSelectedGameObject(firstSelectedUIElement);
-        AudioManager.Pause();
-        backAction.Enable();
-        isPaused = true;
-    }
-
-    void UnpauseGame()
-    {
-        SubscribeToPause();
-        Time.timeScale = 1f;
-        GamePaused?.Invoke(false);
-        pauseMenu.SetActive(false);
-        AudioManager.Unpause();
-        backAction.Disable();
-        isPaused = false;
     }
 
     private void SubscribeToBack()
@@ -150,17 +122,67 @@ public class PauseMenuController : MonoBehaviour
         GameplayInputHandler.pause += OnPauseButton;
         pauseSubscribed = true;
     }
+    void PauseGame()
+    {
+        if (Time.timeScale < 1.0f) return;
+        GamePaused?.Invoke(true);
+        Time.timeScale = 0f;
+        UIFader.FadeCanvasGroup(pauseMenuCG);
+        EVRef.SetSelectedGameObject(firstSelectedUIElement);
+        AudioManager.Pause();
+        isPaused = true;
+    }
+
+    void UnpauseGame()
+    {
+        SubscribeToPause();
+        Time.timeScale = 1f;
+        GamePaused?.Invoke(false);
+        pauseMenu.SetActive(false);
+        AudioManager.Unpause();
+        isPaused = false;
+    }
 
     public void HandleOptions()
     {
         if (optionsMenu.activeSelf)
         {
+            SubscribeToPause();
             UIFader.FadeObjects(pauseButtons, pauseButtonsCG, optionsMenu, optionsMenuCG);
         }
         else
         {
+            SubscribeToBack();
             UIFader.FadeObjects(optionsMenu, optionsMenuCG, pauseButtons, pauseButtonsCG);
         }
+    }
+
+    
+
+    public void HandleContinue()
+    {
+        OnContinue?.Invoke();
+    }
+
+    private void HandleSongEnd(int score, int maxCombo, float scorePercentage, int currentLevel)
+    {
+        completeDescription.text = $"Score: {score} ({(int)(scorePercentage * 100)}%)\nMaximum combo: {maxCombo}";
+        switch (currentLevel)
+        {
+            case 0:
+                completeTitle.text = "First chant complete";
+                break;
+            case 1:
+                completeTitle.text = "Final chant complete";
+                break;
+            default:
+                completeTitle.text = "Chant complete";
+                break;
+        }
+        completeScreen.interactable = true;
+        completeScreen.blocksRaycasts = true;
+        completeScreen.DOFade(1f, 0.5f);
+        EVRef.SetSelectedGameObject(continueButton);
     }
 
     public void HandleQuit()

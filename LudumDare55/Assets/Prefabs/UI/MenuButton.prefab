@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6799065705922096150}
   - component: {fileID: 3939566841923971109}
   - component: {fileID: 9140007767263754377}
+  - component: {fileID: 7607231142432424942}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -172,6 +173,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableSelectAudio: 0
+--- !u!114 &7607231142432424942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6799065705922096144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 6, y: 6}
+  m_UseGraphicAlpha: 1
 --- !u!1 &6799065706184972082
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +256,7 @@ MonoBehaviour:
   m_text: PLAY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9631acca3a8629439424a74e7cd0524, type: 2}
-  m_sharedMaterial: {fileID: -5592507110040582937, guid: f9631acca3a8629439424a74e7cd0524, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 091de448a0f9e964b96672536e6cab87, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

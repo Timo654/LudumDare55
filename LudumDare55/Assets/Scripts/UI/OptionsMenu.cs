@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,12 +12,14 @@ public class OptionsMenu : MonoBehaviour
     public TMPro.TMP_Dropdown resolutionDropdown;
     public Toggle fullscreenToggle;
     [SerializeField] GameObject resolutionOption;
+    [SerializeField] TextMeshProUGUI audioOffsetText;
     private void Start()
     {
         if (BuildConstants.isWebGL || BuildConstants.isMobile)
         {
             resolutionOption.SetActive(false);
         }
+        audioOffsetText.text = SaveManager.Instance.gameData.audioOffsetMilliseconds.ToString();
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         filteredResolutions = new();
@@ -55,6 +58,27 @@ public class OptionsMenu : MonoBehaviour
         Screen.fullScreen = isFullscreen;
     }
 
+    public void IncrementAudioOffset()
+    {
+        SetAudioOffset(1);
+    }
+
+    public void DecrementAudioOffset()
+    {
+        SetAudioOffset(-1);
+    }
+
+    public void SetAudioOffset(int increment)
+    {
+        var audioOffset = SaveManager.Instance.gameData.audioOffsetMilliseconds;
+        audioOffset += increment;
+        if (audioOffset > 150 || audioOffset < -150)
+        {
+            return; // do not change the offset
+        }
+        SaveManager.Instance.gameData.audioOffsetMilliseconds = audioOffset;
+        audioOffsetText.text = audioOffset.ToString();
+    }
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = filteredResolutions[resolutionIndex];

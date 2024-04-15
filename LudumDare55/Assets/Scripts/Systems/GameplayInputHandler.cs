@@ -15,7 +15,7 @@ public class GameplayInputHandler : MonoBehaviour
 
     // BOOLS TO CHECK STUFF
     private bool isPaused = false;
-    private bool isFrogMode;
+    private bool canPause = false;
     private InputAction pauseAction;
     private InputAction backAction;
     private InputAction rhythmPadAction;
@@ -42,6 +42,21 @@ public class GameplayInputHandler : MonoBehaviour
         PauseMenuController.GamePaused += TogglePause;
         rhythmPadAction.started += OnRhythmPress;
         rhythmPadAction.canceled += OnRhythmPress;
+        LevelChanger.OnFadeInFinished += EnablePause;
+        RhythmManager.OnSongEnd += DisablePause;
+    }
+
+    // on song end
+    private void DisablePause(int arg1, int arg2, float arg3, int arg4)
+    {
+        if (isPaused)
+        {
+            pause?.Invoke();
+        }
+        else
+        {
+            canPause = false;
+        }
     }
 
     private void OnDisable()
@@ -52,6 +67,13 @@ public class GameplayInputHandler : MonoBehaviour
         pauseAction.performed -= PausePerformed;
         backAction.performed -= BackPerformed;
         PauseMenuController.GamePaused -= TogglePause;
+        LevelChanger.OnFadeInFinished -= EnablePause;
+        RhythmManager.OnSongEnd -= DisablePause;
+    }
+
+    private void EnablePause()
+    {
+        canPause = true;
     }
 
     private void TogglePause(bool obj)
@@ -61,7 +83,10 @@ public class GameplayInputHandler : MonoBehaviour
 
     private void PausePerformed(InputAction.CallbackContext context)
     {
-        pause?.Invoke();
+        if (canPause)
+        {
+            pause?.Invoke();
+        }    
     }
 
     private void BackPerformed(InputAction.CallbackContext context)
