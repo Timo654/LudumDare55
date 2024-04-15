@@ -237,7 +237,23 @@ public class RhythmManager : MonoBehaviour
             var noteObject = CreateButton(note);
             if (note.noteType == NoteType.Hold)
             {
-                CreateEnd(note, noteObject, new Color(1f, 0.9607843f, 0.8901961f, 1f));
+                var color = Color.white;
+                switch (note.buttonType)
+                {
+                    case ButtonType.Up:
+                        color = new Color(0.8313726f, 0.882353f, 0.8705883f, 1f);
+                        break;
+                    case ButtonType.Down:
+                        color = new Color(0.937255f, 0.8705883f, 0.9058824f, 1f);
+                        break;
+                    case ButtonType.Left:
+                        color = new Color(0.9058824f, 0.8666667f, 0.8392158f, 1f);
+                        break;
+                    case ButtonType.Right:
+                        color = new Color(0.8627452f, 0.882353f, 0.8941177f, 1f);
+                        break;
+                }
+                CreateEnd(note, noteObject, color);
             }
             notes.Add(noteObject); // for the list we'll use during gameplay
         }
@@ -319,7 +335,7 @@ public class RhythmManager : MonoBehaviour
         {
             if (AudioManager.Instance.GetMusicPosition() > 0)
             {
-                tutorialBG.DOFade(0f, 0.25f).SetDelay(5f);
+                tutorialBG.DOFade(0f, 0.25f).SetDelay(8f);
                 musicStarted = true;
                 buttonScroller.GetComponent<ButtonScroller>().movementSpeed = movementSpeed;
                 return true;
