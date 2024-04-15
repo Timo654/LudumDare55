@@ -43,6 +43,20 @@ public class GameplayInputHandler : MonoBehaviour
         rhythmPadAction.started += OnRhythmPress;
         rhythmPadAction.canceled += OnRhythmPress;
         LevelChanger.OnFadeInFinished += EnablePause;
+        RhythmManager.OnSongEnd += DisablePause;
+    }
+
+    // on song end
+    private void DisablePause(int arg1, int arg2, float arg3, int arg4)
+    {
+        if (isPaused)
+        {
+            pause?.Invoke();
+        }
+        else
+        {
+            canPause = false;
+        }
     }
 
     private void OnDisable()
@@ -54,12 +68,14 @@ public class GameplayInputHandler : MonoBehaviour
         backAction.performed -= BackPerformed;
         PauseMenuController.GamePaused -= TogglePause;
         LevelChanger.OnFadeInFinished -= EnablePause;
+        RhythmManager.OnSongEnd -= DisablePause;
     }
 
     private void EnablePause()
     {
         canPause = true;
     }
+
     private void TogglePause(bool obj)
     {
         isPaused = obj;

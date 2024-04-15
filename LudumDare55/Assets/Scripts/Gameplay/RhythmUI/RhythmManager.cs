@@ -162,7 +162,6 @@ public class RhythmManager : MonoBehaviour
     void HandleMiss()
     {
         missSound.start();
-        Debug.Log("miss!!");
         if (combo > maxCombo)
         {
             maxCombo = combo;
@@ -433,7 +432,6 @@ public class RhythmManager : MonoBehaviour
                 finished = true;
             }
         }
-        Debug.Log(audioOffsetMs);
         if (visualScore != score)
         {
             visualScore = Mathf.MoveTowards(visualScore, score, scoreCounterSpeed * Time.deltaTime);

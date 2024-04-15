@@ -17,6 +17,7 @@ public class PauseMenuController : MonoBehaviour
     [SerializeField] private CanvasGroup completeScreen;
     [SerializeField] private TextMeshProUGUI completeTitle;
     [SerializeField] private TextMeshProUGUI completeDescription;
+    [SerializeField] private GameObject continueButton;
     private bool pauseSubscribed = true;
 
     private CanvasGroup optionsMenuCG;
@@ -25,6 +26,7 @@ public class PauseMenuController : MonoBehaviour
     private EventSystem EVRef;
     private GameObject lastSelect;
     private bool isPaused;
+
     public static event Action OnContinue;
 
     private void Awake()
@@ -180,6 +182,7 @@ public class PauseMenuController : MonoBehaviour
         completeScreen.interactable = true;
         completeScreen.blocksRaycasts = true;
         completeScreen.DOFade(1f, 0.5f);
+        EVRef.SetSelectedGameObject(continueButton);
     }
 
     public void HandleQuit()

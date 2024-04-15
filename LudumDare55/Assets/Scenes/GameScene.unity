@@ -1188,6 +1188,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6799065705922096151, guid: de6a6f1d7181ce548a6b3779703da860, type: 3}
   m_PrefabInstance: {fileID: 452134665}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &452134667 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6799065705922096144, guid: de6a6f1d7181ce548a6b3779703da860, type: 3}
+  m_PrefabInstance: {fileID: 452134665}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &583785340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1672,6 +1677,7 @@ MonoBehaviour:
   completeScreen: {fileID: 868295573}
   completeTitle: {fileID: 167169084}
   completeDescription: {fileID: 188700957}
+  continueButton: {fileID: 452134667}
 --- !u!114 &775153514
 MonoBehaviour:
   m_ObjectHideFlags: 0
