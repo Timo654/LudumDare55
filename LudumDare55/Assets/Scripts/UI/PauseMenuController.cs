@@ -1,7 +1,8 @@
+using DG.Tweening;
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PauseMenuController : MonoBehaviour
@@ -13,6 +14,9 @@ public class PauseMenuController : MonoBehaviour
     [SerializeField] private Button settingsBackButton;
     [SerializeField] private GameObject firstSelectedUIElement;
     [SerializeField] private GameObject touchUI;
+    [SerializeField] private CanvasGroup completeScreen;
+    [SerializeField] private TextMeshProUGUI completeTitle;
+    [SerializeField] private TextMeshProUGUI completeDescription;
     private bool pauseSubscribed = true;
 
     private CanvasGroup optionsMenuCG;
@@ -20,8 +24,8 @@ public class PauseMenuController : MonoBehaviour
     private CanvasGroup pauseButtonsCG;
     private EventSystem EVRef;
     private GameObject lastSelect;
-    private bool canPause;
     private bool isPaused;
+    public static event Action OnContinue;
 
     private void Awake()
     {
@@ -55,22 +59,14 @@ public class PauseMenuController : MonoBehaviour
     public void OnEnable()
     {
         GameplayInputHandler.pause += OnPauseButton;
+        RhythmManager.OnSongEnd += HandleSongEnd;
     }
 
     public void OnDisable()
     {
         GameplayInputHandler.pause -= OnPauseButton;
         GameplayInputHandler.back -= OnPauseButton;
-    }
-
-    void DisablePause()
-    {
-        canPause = false;
-    }
-
-    void EnablePause()
-    {
-        canPause = true;
+        RhythmManager.OnSongEnd -= HandleSongEnd;
     }
 
     private void Update()
@@ -157,6 +153,33 @@ public class PauseMenuController : MonoBehaviour
             SubscribeToBack();
             UIFader.FadeObjects(optionsMenu, optionsMenuCG, pauseButtons, pauseButtonsCG);
         }
+    }
+
+    
+
+    public void HandleContinue()
+    {
+        OnContinue?.Invoke();
+    }
+
+    private void HandleSongEnd(int score, int maxCombo, float scorePercentage, int currentLevel)
+    {
+        completeDescription.text = $"Score: {score} ({(int)(scorePercentage * 100)}%)\nMaximum combo: {maxCombo}";
+        switch (currentLevel)
+        {
+            case 0:
+                completeTitle.text = "First chant complete";
+                break;
+            case 1:
+                completeTitle.text = "Final chant complete";
+                break;
+            default:
+                completeTitle.text = "Chant complete";
+                break;
+        }
+        completeScreen.interactable = true;
+        completeScreen.blocksRaycasts = true;
+        completeScreen.DOFade(1f, 0.5f);
     }
 
     public void HandleQuit()

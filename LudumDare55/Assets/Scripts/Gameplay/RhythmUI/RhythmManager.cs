@@ -28,6 +28,7 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] private Sprite happyFrog;
     [SerializeField] private Sprite sadFrog;
     [SerializeField] private Sprite defaultFrog;
+    [SerializeField] private float scoreCounterSpeed = 50f;
     [Header("Runtime stuff")]
     private SongData songData;
     private Image fluteFrogSprite;
@@ -41,18 +42,23 @@ public class RhythmManager : MonoBehaviour
     private bool pressedButton = false;
     private float movementSpeed = 10f;
     private double holdDuration = 0f;
+    private int maxCombo = 0;
     private bool holdStarted = false;
     private int combo;
     private int score;
+    private float visualScore;
     private bool currentlyEmoting;
     private HitGrade prevEmoteGrade;
+    private EndingType endingType;
     public static event Action<NoteType, HitGrade, ButtonType> OnHit;
     public static event Action OnMiss;
     public static event Action<int> OnGetMaxScore; // name might be misleading, this is when the game figures out what max score is.
     public static event Action<int> OnGetScore;
     public static event Action<int> OnSongLoad;
+    public static event Action<int, int, float, int> OnSongEnd;
     private int maxScore;
     private EventInstance missSound;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -110,6 +116,7 @@ public class RhythmManager : MonoBehaviour
         LevelChanger.OnFadeInFinished += HandleStart;
         GameplayInputHandler.RhythmButtonPressed += OnInputPressed;
         GameplayInputHandler.RhythmButtonReleased += OnInputReleased;
+        PauseMenuController.OnContinue += GoToNextLevel;
     }
 
     private void OnDisable()
@@ -120,6 +127,7 @@ public class RhythmManager : MonoBehaviour
         LevelChanger.OnFadeInFinished -= HandleStart;
         GameplayInputHandler.RhythmButtonPressed -= OnInputPressed;
         GameplayInputHandler.RhythmButtonReleased -= OnInputReleased;
+        PauseMenuController.OnContinue -= GoToNextLevel;
     }
     void OnInputPressed(ButtonType button)
     {
@@ -147,7 +155,6 @@ public class RhythmManager : MonoBehaviour
 
     void UpdateStats()
     {
-        scoreText.text = $"Score: {score}";
         comboText.text = $"Combo: {combo}";
     }
 
@@ -155,6 +162,10 @@ public class RhythmManager : MonoBehaviour
     {
         missSound.start();
         Debug.Log("miss!!");
+        if (combo > maxCombo)
+        {
+            maxCombo = combo;
+        }
         combo = 0;
         UpdateGrade(HitGrade.Bad);
         ResetHitData();
@@ -351,9 +362,12 @@ public class RhythmManager : MonoBehaviour
     private void HandleSongEnd()
     {
         Debug.Log("level finished!");
+        if (combo > maxCombo)
+        {
+            maxCombo = combo;
+        }
         SaveManager.Instance.gameData.previousScore = score;
         buttonScroller.GetComponent<ButtonScroller>().movementSpeed = 0;
-        EndingType endingType;
         float scoreReq = 0.75f;
         switch (SaveManager.Instance.gameData.difficulty)
         {
@@ -364,7 +378,9 @@ public class RhythmManager : MonoBehaviour
                 scoreReq = 0.8f;
                 break;
         }
-        if ((score / (float)maxScore) > scoreReq)
+        var scorePercentage = score / (float)maxScore;
+
+        if (scorePercentage > scoreReq)
         {
             endingType = EndingType.Good;
         }
@@ -373,6 +389,11 @@ public class RhythmManager : MonoBehaviour
             endingType = EndingType.Bad;
         }
 
+        OnSongEnd?.Invoke(score, maxCombo, scorePercentage, songData.levelId);
+    }
+
+    private void GoToNextLevel()
+    {
         if (songData.nextSong != null)
         {
             SaveManager.Instance.runtimeData.currentSong = songData.nextSong;
@@ -390,8 +411,6 @@ public class RhythmManager : MonoBehaviour
             }
             LevelChanger.Instance.FadeToLevel("Ending");
         }
-
-
     }
 
     private int UpdateTimerValue()
@@ -414,7 +433,12 @@ public class RhythmManager : MonoBehaviour
             }
         }
 
-
+        if (visualScore != score)
+        {
+            Debug.Log($"not equal, {visualScore} and {score}");
+            visualScore = Mathf.MoveTowards(visualScore, score, scoreCounterSpeed * Time.deltaTime);
+            scoreText.text = $"Score: {Mathf.RoundToInt(visualScore)}";
+        }
         int musicPos = UpdateTimerValue();
         if (notes.Count <= 0) return; // song is over
         var noteData = notes[0].GetComponent<ButtonScript>();
