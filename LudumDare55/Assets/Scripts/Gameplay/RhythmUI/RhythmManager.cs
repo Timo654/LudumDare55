@@ -19,7 +19,7 @@ public class RhythmManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI gradeText;
     [SerializeField] private TextMeshProUGUI tutorialText;
-    [SerializeField] private Image tutorialBG;
+    [SerializeField] private CanvasGroup tutorialBG;
     [SerializeField] private GameObject longNoteLinePrefab;
     [SerializeField] private Image timerFillImage;
     [SerializeField] private EndingData[] endings;
@@ -72,9 +72,10 @@ public class RhythmManager : MonoBehaviour
         movementSpeed = ((1080.0f + hitter.localPosition.x) / songData.displayDuration) * 2;
         OnSongLoad?.Invoke(songData.levelId);
         timerFillImage.fillAmount = 0f;
+        tutorialBG.gameObject.SetActive(true);
         if (songData.levelId == 1)
         {
-            tutorialText.text = "Good... \nWe must repeat this once more to summon Them...";
+            tutorialText.text = "Good... \nWe must do one more dance to summon Them...";
         }
 
     }
@@ -318,7 +319,6 @@ public class RhythmManager : MonoBehaviour
         {
             if (AudioManager.Instance.GetMusicPosition() > 0)
             {
-                tutorialText.DOFade(0f, 0.25f).SetDelay(5f);
                 tutorialBG.DOFade(0f, 0.25f).SetDelay(5f);
                 musicStarted = true;
                 buttonScroller.GetComponent<ButtonScroller>().movementSpeed = movementSpeed;
