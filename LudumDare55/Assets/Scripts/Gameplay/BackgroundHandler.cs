@@ -16,6 +16,7 @@ public class BackgroundHandler : MonoBehaviour
     private float fadeTarget = 0.0f;
 
     [SerializeField] private SpriteRenderer tiktaalik;
+    [SerializeField] private SpriteRenderer flounder;
     private void Start()
     {
         if (!isGameScene) return;
@@ -135,10 +136,16 @@ public class BackgroundHandler : MonoBehaviour
             eventHandler();
         }
 
-        if (levelId == 1) // level 2
+        switch (levelId)
         {
-            tiktaalik.DOKill(); // lõpetame hetkel käivad tween animatsioonid
-            tiktaalik.DOFade(currentFade, 0.5f);
+            case 0:
+                flounder.DOKill(); // lõpetame hetkel käivad tween animatsioonid
+                flounder.DOFade(currentFade, 0.5f);
+                break;
+            case 1:
+                tiktaalik.DOKill(); // lõpetame hetkel käivad tween animatsioonid
+                tiktaalik.DOFade(currentFade, 0.5f);
+                break;
         }
     }
 
