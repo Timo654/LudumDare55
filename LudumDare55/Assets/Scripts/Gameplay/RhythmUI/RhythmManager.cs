@@ -264,7 +264,7 @@ public class RhythmManager : MonoBehaviour
         var noteObject = Instantiate(buttonPrefab);
         noteObject.transform.SetParent(buttonScroller, false);
         var noteScript = noteObject.transform.GetComponent<ButtonScript>();
-        var yPosition = hitter.localPosition.y - 160 - (85 * note.verticalPosition); // TODO - adjust this to change the difference between vert lines
+        var yPosition = hitter.localPosition.y - 160 - (87 * note.verticalPosition); // TODO - adjust this to change the difference between vert lines
         var requiredDistance = hitter.localPosition.x;
         if (isEnd)
         {
