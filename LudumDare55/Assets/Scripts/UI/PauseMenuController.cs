@@ -26,7 +26,7 @@ public class PauseMenuController : MonoBehaviour
     private EventSystem EVRef;
     private GameObject lastSelect;
     private bool isPaused;
-
+    private bool canPause = true;
     public static event Action OnContinue;
 
     private void Awake()
@@ -52,7 +52,7 @@ public class PauseMenuController : MonoBehaviour
 
     private void OnApplicationFocus(bool focus)
     {
-        if (!focus)
+        if (!focus && canPause)
         {
             PauseGame();
         }
@@ -157,7 +157,7 @@ public class PauseMenuController : MonoBehaviour
         }
     }
 
-    
+
 
     public void HandleContinue()
     {
@@ -166,6 +166,7 @@ public class PauseMenuController : MonoBehaviour
 
     private void HandleSongEnd(int score, int maxCombo, float scorePercentage, int currentLevel)
     {
+        canPause = false;
         completeDescription.text = $"Score: {score} ({(int)(scorePercentage * 100)}%)\nMaximum combo: {maxCombo}";
         switch (currentLevel)
         {
