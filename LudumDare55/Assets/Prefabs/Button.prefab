@@ -664,7 +664,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 5
+    type: 4
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -1541,11 +1541,13 @@ ParticleSystem:
     tilesY: 1
     animationType: 0
     rowIndex: 0
-    cycles: 1
+    cycles: 4
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: 7b0aff4238befb0f9afd5d8e8aac75ba, type: 3}
+    - sprite: {fileID: -1967836383, guid: db4c662bf3d6fd04fbd9614ff4a30dd0, type: 3}
+    - sprite: {fileID: -1206356904, guid: db4c662bf3d6fd04fbd9614ff4a30dd0, type: 3}
+    - sprite: {fileID: 1696479895, guid: db4c662bf3d6fd04fbd9614ff4a30dd0, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4835,7 +4837,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ae4315f66cf774940bd33ba684e4ebba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
